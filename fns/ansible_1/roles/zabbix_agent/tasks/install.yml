@@ -1,0 +1,32 @@
+---
+
+- name: Set Zabbix daemon name (ALT)
+  set_fact:
+    zabbix_agent_daemon: zabbix_agentd
+  when: ansible_distribution == "ALT"
+
+- name: Set Zabbix daemon name (RHEL/OEL)
+  set_fact:
+    zabbix_agent_daemon: zabbix-agent
+  when: ansible_distribution == "RedHat" or ansible_distribution == 'OracleLinux'
+
+
+- name: Install Zabbix Agent (RHEL/OEL)
+  yum:
+    name: "zabbix-agent"
+    state: "present"
+    update_cache: "yes"
+  when: ansible_distribution == "RedHat" or ansible_distribution == 'OracleLinux'
+
+- name: Install Zabbix Agent (ALT)
+  apt_rpm:
+    name: "zabbix-agent"
+    state: "present"
+    update_cache: "yes"
+  when: ansible_distribution == "ALT"
+
+- name: Enabling Zabbix Agent
+  service:
+    name: "{{ zabbix_agent_daemon }}"
+    state: "started"
+    enabled: "yes"

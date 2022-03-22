@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  vars_prompt:
+  - name: 'remove_old_sudo'
+    promt: 'Do you want to reboot hosts?'
+    private: false
+    default: false
+  become: true
+  roles:
+    - sudoers

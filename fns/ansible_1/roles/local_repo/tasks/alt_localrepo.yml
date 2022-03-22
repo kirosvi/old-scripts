@@ -1,0 +1,10 @@
+---
+
+- name: localrepo file (ALT)
+  template:
+    src: "alt_local_repo.j2"
+    dest: "/etc/apt/sources.list"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+

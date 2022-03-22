@@ -1,0 +1,4 @@
+---
+
+- name: Create user
+  include: create.yml

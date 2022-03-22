@@ -1,0 +1,17 @@
+[rhel-{{ ansible_distribution_major_version}}-server-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/RHEL-v{{ ansible_distribution_major_version}}/rhel-{{ ansible_distribution_major_version}}-server-rpms/
+enabled=1
+gpgcheck=0
+
+[zabbix-3.4-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/RHEL-v{{ ansible_distribution_major_version}}/zabbix-3.4-rpms/
+enabled=1
+gpgcheck=0
+
+[epel-{{ ansible_distribution_major_version}}-server-srpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/RHEL-v7/epel-{{ ansible_distribution_major_version}}-server-srpms/
+enabled=1
+gpgcheck=0

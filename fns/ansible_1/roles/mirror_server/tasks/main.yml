@@ -1,0 +1,26 @@
+---
+
+- name: Install packages
+  include: el_install.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Config httpd
+  include: el_config_httpd.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Import Keys
+  include: el_importkey.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Cnahge repolist
+  include: el_repo.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Copy script
+  include: el_sync_script.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Change crontab
+  include: el_cron_script.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+

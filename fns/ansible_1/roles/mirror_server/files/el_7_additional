@@ -1,0 +1,206 @@
+[epel-7-server-srpms]
+name=Extra Packages for Enterprise Linux x86_64 repository
+baseurl=https://dl.fedoraproject.org/pub/epel/7/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+
+
+[zabbix-3.4-rpms]
+name=Zabbix 3.4 x86_64 repository
+baseurl=http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
+
+#####################################
+
+[mongodb-org-3.4-rpms]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mongodb-3.4
+
+[mongodb-org-3.6-rpms]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mongodb-3.6
+
+[mongodb-org-4.0-rpms]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mongodb-4.0
+
+#####################################
+
+[oel-7-server-rpms]
+name=Oracle Linux 7 x86_64 repository
+baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/
+enabled=0
+gpgcheck=0
+
+[oel-7-software-collections]
+name=Software Collection Library release 3.0 packages for Oracle Linux 7 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/SoftwareCollections/x86_64/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=0
+enabled=0
+
+[oel-7-u4-base]
+name=Oracle Linux $releasever Update 4 installation media copy ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/4/base/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=0
+enabled=0
+
+[oel-7-optional-latest]
+name=Oracle Linux $releasever Optional Latest ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/optional/latest/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=0
+enabled=0
+
+[oel-7-addons]
+name=Oracle Linux $releasever Add ons ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=0
+enabled=0
+
+[oel-7-uekr4]
+name=Latest Unbreakable Enterprise Kernel Release 4 for Oracle Linux 7 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/UEKR4/x86_64/
+gpgcheck=0
+enabled=0
+
+[oel-7-uekr3]
+name=Latest Unbreakable Enterprise Kernel Release 3 for Oracle Linux 7 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/UEKR3/x86_64/
+gpgcheck=0
+enabled=0
+
+[oel-7-uekr4-ofed]
+name=OFED supporting tool packages for Unbreakable Enterprise Kernel Release 4 on Oracle Linux 7 ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/UEKR4/OFED/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=0
+enabled=0
+priority=20
+
+
+#########################################
+
+[pgee-9.6-rpms]
+name=PostgreSQL Enterprise edition 9.6 with BDR for RHEL 7 repository
+baseurl=https://fcod.nalog.ru:gaiLah0f@repoee.postgrespro.ru/pgproee-9.6/rhel/7Server/os/x86_64/rpms/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-POSTGRESPRO
+
+[pgpro-std-9.6.6-rpms]
+name=PostgreSQL PRO standart edition 9.6.6.1 RHEL 7 repository
+baseurl=http://repo.postgrespro.ru/pgpro-archive/pgpro-9.6.6.1/rhel/7Server/os/x86_64/rpms
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-POSTGRESPRO
+
+[pgpro-std-9.6-rpms]
+name=PostgresPro Packages for Red Hat Enterprise Linux - $basearch
+baseurl=http://repo.postgrespro.ru/pgpro-9.6/rhel/$releasever/os/$basearch/rpms
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-POSTGRESPRO
+
+[pgpro-std-9.6-sources]
+name=PostgresPro Packages for Red Hat Enterprise Linux - $basearch - Source
+baseurl=http://repo.postgrespro.ru/pgpro-9.6/rhel/$releasever/os/$basearch/srpms
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-POSTGRESPRO
+
+[pgdg-9.4-rpms]
+name=PostgreSQL 9.4 $releasever - $basearch
+baseurl=https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-$releasever-$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-94
+
+[pgdg-9.4-sources]
+name=PostgreSQL 9.4 $releasever - $basearch - Source
+failovermethod=priority
+baseurl=https://download.postgresql.org/pub/repos/yum/srpms/9.4/redhat/rhel-$releasever-$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-94
+ 
+[pgdg-9.5-rpms]
+name=PostgreSQL 9.5 7 - x86_64
+baseurl=https://download.postgresql.org/pub/repos/yum/9.5/redhat/rhel-7-x86_64/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-95
+
+[pgdg-9.5-source]
+name=PostgreSQL 9.5 7 - x86_64 - Source
+failovermethod=priority
+baseurl=https://download.postgresql.org/pub/repos/yum/srpms/9.5/redhat/rhel-7-x86_64/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-95
+
+[pgdg-bdr-9.4-rpms]
+name=PostgreSQL 9.4 with BDR for RHEL $releasever - $basearch
+baseurl=http://packages.2ndquadrant.com/postgresql-bdr94-2ndquadrant/yum/redhat-$releasever-$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2NDQ-BDR-94
+
+[pgdg-bdr-9.4-source]
+name=PostgreSQL 9.4 with BDR for RHEL $releasever - Source
+failovermethod=priority
+baseurl=http://packages.2ndquadrant.com/postgresql-bdr94-2ndquadrant/yum/redhat-$releasever
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2NDQ-BDR-94
+
+[pgdg-bdr-9.4-testing]
+name=PostgreSQL 9.4 with BDR testing for RHEL $releasever - $basearch
+baseurl=http://packages.2ndquadrant.com/postgresql-bdr94-2ndquadrant/yum-testing/redhat-$releasever-$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2NDQ-BDR-94
+
+
+#########################################
+
+[webtatic]
+name=Webtatic Repository EL7 - $basearch
+#baseurl=https://repo.webtatic.com/yum/el7/$basearch/
+mirrorlist=https://mirror.webtatic.com/yum/el7/$basearch/mirrorlist
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-webtatic-el7
+
+[webtatic-debuginfo]
+name=Webtatic Repository EL7 - $basearch - Debug
+#baseurl=https://repo.webtatic.com/yum/el7/$basearch/debug/
+mirrorlist=https://mirror.webtatic.com/yum/el7/$basearch/debug/mirrorlist
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-webtatic-el7
+
+[webtatic-source]
+name=Webtatic Repository EL7 - $basearch - Source
+#baseurl=https://repo.webtatic.com/yum/el7/SRPMS/
+mirrorlist=https://mirror.webtatic.com/yum/el7/SRPMS/mirrorlist
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-webtatic-el7

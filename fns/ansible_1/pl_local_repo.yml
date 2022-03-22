@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: true
+
+  vars_prompt:
+  - name: "delete_old_repo"
+    prompt: "\nDelete all repo files?"
+    private: False
+    default: False
+
+  roles:
+    - local_repo

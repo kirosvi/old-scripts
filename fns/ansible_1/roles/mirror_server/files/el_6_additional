@@ -1,0 +1,91 @@
+[epel-6-server-srpms]
+name=Extra Packages for Enterprise Linux x86_64 repository
+baseurl=https://dl.fedoraproject.org/pub/epel/6/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
+[oel-6-server-rpms]
+name=Oracle Linux 7 x86_64 repository
+baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/
+enabled=0
+gpgcheck=0
+
+[zabbix-3.4-rpms]
+name=Zabbix 3.4 x86_64 repository
+baseurl=http://repo.zabbix.com/zabbix/3.4/rhel/6/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
+
+[virtuozzo-6-rpms]
+name=Virtuozzo Base repository
+baseurl=http://updates.virtuozzo.com/cloudserver/6.0/Release/
+enabled=0
+gpgcheck=0
+
+[virtuozzo-6-update-rpms]
+name=Virtuozzo Updates repository
+baseurl=http://updates.virtuozzo.com/cloudserver/6.0/Updates/
+enabled=0
+gpgcheck=0
+
+[virtuozzo-6-debug-rpms]
+name=Virtuozzo Debug and Devel packages repository
+baseurl=http://updates.virtuozzo.com/cloudserver/6.0/debug/
+enabled=0
+gpgcheck=0
+
+[virtuozzo-6-x86_64-os-rpms]
+name=Virtuozzo Debug and Devel packages repository
+baseurl=http://repo.virtuozzo.com/vzlinux/6/x86_64/os/
+enabled=0
+gpgcheck=0
+
+[virtuozzo-6-x86_64-updates-rpms]
+name=Virtuozzo Debug and Devel packages repository
+baseurl=http://repo.virtuozzo.com/vzlinux/6/x86_64/updates/
+enabled=0
+gpgcheck=0
+
+[virtuozzo-6-x86_64-debug-rpms]
+name=Virtuozzo Debug and Devel packages repository
+baseurl=http://repo.virtuozzo.com/vzlinux/6/x86_64/debug/
+enabled=0
+gpgcheck=0
+
+[virtuozzo-6-x86_64-debug_updates-rpms]
+name=Virtuozzo Debug and Devel packages repository
+baseurl=http://repo.virtuozzo.com/vzlinux/6/x86_64/debug_updates/
+enabled=0
+gpgcheck=0
+
+[oel-6-uekr4]
+name=Latest Unbreakable Enterprise Kernel Release 4 for Oracle Linux 6 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL6/UEKR4/x86_64/
+gpgcheck=0
+enabled=0
+
+[oel-6-uekr3]
+name=Latest Unbreakable Enterprise Kernel for Oracle Linux 6 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL6/UEKR3/latest/x86_64/
+gpgcheck=0
+enabled=0
+
+[oel-6-uek-latest]
+name=Latest Unbreakable Enterprise Kernel for Oracle Linux 6 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL6/UEK/latest/x86_64/
+gpgcheck=0
+enabled=0
+
+[oel-6-uek-base]
+name=Unbreakable Enterprise Kernel for Oracle Linux 6 (x86_64)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL6/UEK/base/x86_64/
+gpgcheck=0
+enabled=0
+
+[rhel-6-ansible]
+name=Ansible official repository
+baseurl=https://releases.ansible.com/ansible/rpm/release/epel-6-x86_64/
+gpgcheck=1
+enabled=0

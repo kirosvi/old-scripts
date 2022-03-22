@@ -1,0 +1,6 @@
+---
+
+- name: Create history attribute
+  file:
+    path: '/var/log/history/'
+    attributes: 'ae'

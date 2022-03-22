@@ -1,0 +1,24 @@
+---
+
+- name: Set RHEL
+  set_fact:
+    os_dstr: 'RHEL'
+  when: ansible_distribution == 'RedHat'
+
+- name: Set OEL
+  set_fact:
+    os_dstr: 'OEL'
+  when: ansible_distribution == 'OracleLinux'
+
+- name: Directory
+  file:
+    path: '/etc/yum.repos.d/'
+    state: directory
+
+- name: localrepo file (RHEL/OEL)
+  template:
+    src: 'el_local_repo.j2'
+    dest: '/etc/yum.repos.d/local.repo'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'

@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  become: true
+  roles:
+    - default_disable_services

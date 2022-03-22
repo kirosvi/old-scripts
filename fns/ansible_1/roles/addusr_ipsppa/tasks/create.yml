@@ -1,0 +1,19 @@
+---
+
+- name: Create group
+  group:
+    name: 'ipsppa'
+    state: present
+
+
+- name: Create user
+  user:
+    name: 'ipsppa'
+    comment: 'Service account CN-33677'
+    group: 'ipsppa'
+    shell: '/bin/bash'
+    system: yes
+    create_home: yes
+    state: present
+    password: '$6$gTVT7gA4$t/CgcBWJEfpZooWqQwQ9GTIWxTzLQzYC35xG95Nw8KfX1mHhXY0CSk78CjVYnxpfc9zAAA3RnbZv.eUpa0k9D.'
+    update_password: always

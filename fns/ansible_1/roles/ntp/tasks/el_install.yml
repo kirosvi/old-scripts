@@ -1,0 +1,17 @@
+---
+
+- name: Installing ntpd
+  yum:
+    name: '{{ packages }}'
+    state: 'present'
+  vars:
+    packages:
+    - ntp
+    - ntpdate
+    - tzdata
+
+- name: Enabling ntpd
+  service: 
+    name: 'ntpd'
+    state: 'started'
+    enabled: 'yes'

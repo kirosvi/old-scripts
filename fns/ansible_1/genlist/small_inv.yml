@@ -1,0 +1,63 @@
+---
+
+all:
+  vars:
+    change_repo_list:                  'true'
+    repo_rhel_extras:                  false
+    repo_rhel_optional:                false
+    repo_rhel_ansible_26:              false
+    repo_pgdg_bdr_94:                  false
+    repo_pgee_96:                      false
+    repo_pgpro_std_966:                false
+    repo_pgpro_std_96_lt:              false
+    repo_pgdg_94:                      false
+    repo_pgdg_95:                      false
+    repo_mongo_34:                     false
+    repo_mongo_36:                     false
+    repo_mongo_40:                     false
+    change_zabbix_agentd:              'true'
+    change_resolv:                     'true'
+  children:
+    MSK:                                # AREA Moscow
+      vars:
+        cod_ou:                         UNS7701
+      children:
+        MSK_inside:                     # Segment inside
+          vars:
+            segment:                    '
+            realm:                      '
+            work_group:                 '
+            sudo_server:                '
+            mirror_server:              '
+            name_server:                [
+            zbx_active:                  
+            zbx_passive:                 
+            sys_ou:                    'System'
+#          hosts: 
+        MSK_rDMZ:                       # Segment rDMZ
+          vars:
+            segment:                    '
+            realm:                      '
+            work_group:                 '
+            sudo_server:                '
+            mirror_server:              '
+            name_server:                [
+            zbx_active:                  
+            zbx_passive:                 
+            sys_ou:                    'System'
+#          hosts: 
+        MSK_iDMZ:                       # Segment iDMZ
+          vars:
+            segment:                    '
+            realm:                      '
+            work_group:                 '
+            sudo_server:                '
+            mirror_server:              '
+            name_server:                [
+            zbx_active:                  
+            zbx_passive:                 
+            sys_ou:                    'System'
+#          hosts: 
+          hosts:
+            n73: 
+ 

@@ -1,0 +1,9 @@
+---
+
+- name: Change nsswitch
+  copy:
+    src: 'el{{ ansible_distribution_major_version }}_nss'
+    dest: '/etc/nsswitch.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'

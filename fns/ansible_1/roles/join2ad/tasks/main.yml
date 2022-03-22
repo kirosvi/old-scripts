@@ -1,0 +1,25 @@
+---
+
+- name: Install AD services (RHEL/OEL)
+  include: el_install.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Configure AD services (RHEL/OEL)
+  include: el_configs.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Install AD services (ALT)
+  include: alt_install.yml
+  when: ansible_distribution == 'ALT'
+
+- name: Configure AD services (ALT)
+  include: alt_configs.yml
+  when: ansible_distribution == 'ALT'
+
+- name: Join host to AD DPC
+  include: join.yml
+  when: work_group == 'DPC'
+
+- name: Join host to AD IDMZ
+  include: join_idmz.yml
+  when: work_group == 'IDMZ'

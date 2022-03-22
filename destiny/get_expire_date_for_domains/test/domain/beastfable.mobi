@@ -1,0 +1,80 @@
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+refer:        whois.nic.mobi
+
+domain:       MOBI
+
+organisation: Afilias Technologies Limited dba dotMobi
+address:      Level 2, Plaza 3
+address:      Custom House Plaza
+address:      Harbourmaster Place
+address:      Dublin D01 VY76
+address:      Ireland
+
+contact:      administrative
+name:         Senior Vice President
+organisation: Afilias Technologies Limited dba dotMobi
+address:      Level 2, Plaza 3
+address:      Custom House Plaza
+address:      Harbourmaster Place
+address:      Dublin D01 VY76
+address:      Ireland
+phone:        +353 (0) 1 85 41 100
+e-mail:       tld-admin-poc@afilias.info
+
+contact:      technical
+name:         Senior Director, DNS Infrastructure Group
+organisation: Afilias
+address:      300 Welsh Rd. Bldg 3, Suite 105
+address:      Horsham, PA 19044
+address:      United States
+phone:        +1 215-706-5700
+fax-no:       +1 215-706-5701
+e-mail:       tld-tech-poc@afilias.info
+
+nserver:      A0.MOBI.AFILIAS-NST.INFO 199.254.55.1 2001:500:21:0:0:0:0:1
+nserver:      A2.MOBI.AFILIAS-NST.INFO 199.249.118.1 2001:500:46:0:0:0:0:1
+nserver:      B0.MOBI.AFILIAS-NST.ORG 199.254.56.1 2001:500:22:0:0:0:0:1
+nserver:      B2.MOBI.AFILIAS-NST.ORG 199.249.126.1 2001:500:4e:0:0:0:0:1
+nserver:      C0.MOBI.AFILIAS-NST.INFO 199.254.57.1 2001:500:23:0:0:0:0:1
+nserver:      D0.MOBI.AFILIAS-NST.ORG 199.254.58.1 2001:500:24:0:0:0:0:1
+ds-rdata:     56191 8 2 016c0d8022bef2cabb827ce75dabd8fd24cd0160ac277a95ecd5e79b1a95592c
+
+whois:        whois.nic.mobi
+
+status:       ACTIVE
+remarks:      Registration information: http://www.mtld.mobi
+
+created:      2005-10-17
+changed:      2020-09-30
+source:       IANA
+
+# whois.nic.mobi
+
+Domain Name: BEASTFABLE.MOBI
+Registry Domain ID: D102500000008210049-LRMS
+Registrar WHOIS Server: https://www.nic.ru/whois
+Registrar URL: http://www.nic.ru
+Updated Date: 2021-07-11T00:48:07Z
+Creation Date: 2014-07-12T08:16:36Z
+Registry Expiry Date: 2022-07-12T08:16:36Z
+Registrar Registration Expiration Date:
+Registrar: Regional Network Information Center, JSC dba RU-CENTER
+Registrar IANA ID: 463
+Registrar Abuse Contact Email: tld-abuse@nic.ru
+Registrar Abuse Contact Phone: +7.4959944601
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Privacy protection service - whoisproxy.ru
+Registrant State/Province: Moscow
+Registrant Country: RU
+Name Server: DNS1.WEBDRIVE.RU
+Name Server: DNS2.WEBDRIVE.RU
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-07-20T09:38:04Z <<<
+
+# https
+

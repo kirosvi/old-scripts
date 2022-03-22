@@ -1,0 +1,4 @@
+#!/bin/bash
+mailq | tail -n +2 | grep -v '^ *(' | awk 'BEGIN { RS = "" }
+# $7=sender, $8=recipient1, $9=recipient2
+{ print $7, $8 } ' | tr -d '*!'

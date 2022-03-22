@@ -1,0 +1,7 @@
+---
+
+- name: Configure bash config
+  include: conf.yml
+
+- name: Configure attr
+  include: attr.yml

@@ -1,0 +1,10 @@
+---
+
+- name: Remove old files
+  include: alt_remove_old.yml
+  when: ansible_distribution == 'ALT'
+
+- name: Resolv conf
+  include: resolv.yml
+
+# ansible hostname -m shell -a 'sed -i "/^DNS[12]=/d" /etc/sysconfig/network-scripts/ifcfg-*' -b -K

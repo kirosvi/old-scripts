@@ -1,0 +1,8 @@
+---
+
+- name: Reboot system
+  command: date
+  when: reboot_yes
+  notify:
+    - Reboot Server
+  

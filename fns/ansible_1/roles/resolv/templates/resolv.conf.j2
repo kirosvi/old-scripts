@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+{% for nameserver in name_server %}
+nameserver {{ nameserver }}
+{% endfor %}
+{% if segment == 'iDMZ' %}
+search idmz.rvv dpc.tax.nalog.ru
+{% else %}
+search dpc.tax.nalog.ru idmz.rvv
+{% endif %}

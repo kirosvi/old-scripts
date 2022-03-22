@@ -1,0 +1,17 @@
+---
+
+- name: Set Zabbix daemon name ALT
+  set_fact:
+    zabbix_agent_daemon: zabbix_agentd
+  when: ansible_distribution == 'ALT'
+
+- name: Set Zabbix daemon name RHEL
+  set_fact:
+    zabbix_agent_daemon: zabbix-agent
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+
+- name: Restarting zabbix-agent
+  service: 
+    name: '{{ zabbix_agent_daemon }}'
+    state: restarted

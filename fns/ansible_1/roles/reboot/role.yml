@@ -1,0 +1,11 @@
+---
+
+
+- hosts: all
+  vars_prompt:
+  - name: 'reboot_yes'
+    promt: 'Do you want to reboot hosts?'
+    private: false
+    default: false
+  roles:
+    - reboot

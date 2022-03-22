@@ -1,0 +1,61 @@
+---
+
+- include_vars: dlisovsky.yml
+  when: ad_user == 'n7701-00328'
+
+- include_vars: dkishko.yml
+  when: ad_user == 'n7701-00049'
+
+
+- name: Get system variable
+  #command: '`nslookup {{ ansible_nodename }}|grep Name|cut -d- -f2|cut -c 1-3`'
+  shell: "echo {{ ansible_nodename }}|cut -d- -f2|cut -c 1-3"
+  register: systype
+
+- set_fact:
+    list: sys,hdp,dev,std
+
+#- debug:
+#    var: systype
+
+#- name: OU System
+#  set_fact:
+#    srv_ou: System
+#  when: systype.stdout in list
+
+#- name: OU Systems
+#  set_fact:
+#    srv_ou: Systems
+#  when:
+#    - systype.stdout in list
+#    - ss
+
+- name: OU Applications
+  set_fact:
+    sys_ou: Applications
+  when: systype.stdout not in list
+
+#- name: Set DPC passwd
+#  set_fact:
+#    domain_passwd: '{{ domain_dpc_passwd }}'
+#  when: work_group == 'DPC'
+
+- name: Set iDMZ passwd
+  set_fact:
+    domain_passwd: '{{ domain_idmz_passwd }}'
+  when: work_group == 'IDMZ'
+
+
+- name: Join server to {{ cod_ou }} {{ sys_ou }}
+  shell: net ads join --no-dns-updates -U {{ domain_user }}%{{ domain_passwd }} createcomputer={{ cod_ou }}/Servers/{{ sys_ou }}/Unix osName="{{ ansible_distribution }} Linux" osVer=r{{ ansible_distribution_version }}
+
+- name: Apply changes
+  service:
+    name: winbind
+    state: restarted
+
+
+
+#- name: Join server to UNS7701 Application
+#  command: net ads join --no-dns-updates -U {{ doamin_user }}%{{ domain_passwd }} createcomputer={{ cod_ou }}/Servers/Applications/Unix osName='{{ansible_distribution_file_search_string }}' osVer='{{ ansible_distribution_version }}'
+#  when: systype.stdout not in list

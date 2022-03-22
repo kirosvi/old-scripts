@@ -1,0 +1,32 @@
+---
+
+- name: Delete repos
+  file:
+    state: '{{ item }}'
+    path: '/etc/yum.repos.d/'
+  with_items:
+    - absent
+    - directory
+
+
+#- name: Find old repo files (RHEL/OEL)
+#  find:
+#    paths: "/etc/yum.repos.d/"
+#    patterns: "*.repo"
+#  register: find_results 
+#  when: ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+  
+#- debug:
+#    var: find_results
+
+#- name: Remove old repo files
+#  file:
+#    path: '{{ item.path }}'
+#    state: absent
+#  with_items: '{{ find_results.files }}'
+
+#- name: Remove sorce.list in ALT
+#  file:
+#    path: /etc/apt/sources.list
+#    state: absent
+#  when: ansible_distribution == 'ALT'

@@ -1,0 +1,26 @@
+---
+
+- name: Change crontab (RHEL/OEL 6)
+  lineinfile:
+    path: '/etc/crontab'
+    line: '10 1 * * 7 root /usr/local/bin/update_mirror.sh'
+    state: present
+    create: yes
+  when: ansible_distribution_major_version == '6'
+
+
+- name: Change crontab (RHEL/OEL 7)
+  lineinfile:
+    path: '/etc/crontab'
+    line: '10 1 * * 6 root /usr/local/bin/update_mirror.sh'
+    state: present
+    create: yes
+  when: ansible_distribution_major_version == '7'
+
+- name: Create logrotate task
+  copy:
+    src: 'el_logrotate'
+    dest: '/etc/logrotate.d/repo_log'
+    owner: 'root'
+    group: 'root'
+    mode: '644'

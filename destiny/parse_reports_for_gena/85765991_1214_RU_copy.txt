@@ -1,0 +1,22 @@
+Start Date	End Date	UPC	ISRC/ISBN	Vendor Identifier	Quantity	Partner Share	Extended Partner Share	Partner Share Currency	Sales or Return	Apple Identifier	Artist/Show/Developer/Author	Title	Label/Studio/Network/Developer/Publisher	Grid	Product Type Identifier	ISAN/Other Identifier	Country Of Sale	Pre-order Flag	Promo Code	Customer Price	Customer Currency
+11/30/2014	12/27/2014			com.destiny.aof.package4	5	1183.00	5915.00	RUB	S	695455499		6500 Mana			IA1		RU			1690.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.unlocklevelpack7	2	23.10	46.20	RUB	S	918102143		Unlock Level Pack 7			IA1		RU			33.00	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package3	15	454.30	6814.50	RUB	S	695452726		2500 Mana			IA1		RU			649.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.5moves	3	43.40	130.20	RUB	S	730931567		5 moves			IA1		RU			62.00	RUB
+11/30/2014	12/27/2014			com.destinygroup.beastfable.unlock_episode	1	23.10	23.10	RUB	S	874207967		Unlock episode			IA1		RU			33.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.unlocklevelpack	1	23.10	23.10	RUB	S	730948146		Unlock levels pack			IA1		RU			33.00	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package3	2	853.50	1707.00	RUB	S	695452726		2500 Mana			IA1		RU			1219.28	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package4	1	2222.50	2222.50	RUB	S	695455499		6500 Mana			IA1		RU			3175.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.5lives	1	43.40	43.40	RUB	S	730931438		5 lives			IA1		RU			62.00	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package1	3	222.25	666.75	RUB	S	695451518		500 Mana			IA1		RU			317.50	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package2	6	230.30	1381.80	RUB	S	695452356		1200 Mana			IA1		RU			329.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.5moves	7	23.10	161.70	RUB	S	730931567		5 moves			IA1		RU			33.00	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package2	8	432.66	3461.28	RUB	S	695452356		1200 Mana			IA1		RU			618.09	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package5	1	2303.00	2303.00	RUB	S	695457973		14000 Mana			IA1		RU			3290.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.hammer	1	23.10	23.10	RUB	S	730931728		Hammer			IA1		RU			33.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.5lives	2	43.40	86.80	RUB	S	730931438		5 lives			IA1		RU			33.00	RUB
+11/30/2014	12/27/2014			com.destiny.aof.package1	11	118.30	1301.30	RUB	S	695451518		500 Mana			IA1		RU			169.00	RUB
+11/30/2014	12/27/2014			com.destiny.icecreamadventure.5moves	1	23.10	23.10	RUB	S	730931567		5 moves			IA1		RU			62.00	RUB
+Total_Rows	18
+Total_Amount	26333.83
+Total_Units	71

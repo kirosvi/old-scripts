@@ -1,0 +1,10 @@
+---
+
+- name: Setting up sudoers
+  include: el_sudoers.yml
+  when: ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+
+- name: Setting up sudoers
+  include: alt_sudoers.yml
+  when: ansible_distribution == 'ALT'
+ 

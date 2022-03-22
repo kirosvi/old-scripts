@@ -1,0 +1,13 @@
+---
+
+- hosts:
+#    - local_mirrors
+    - n7701-sys300
+    - n7701-sys299
+    - n5001-sys300
+    - n5001-sys299
+    - n5201-sys300
+    - n5201-sys299
+  become: true
+  roles:
+    - mirror_server

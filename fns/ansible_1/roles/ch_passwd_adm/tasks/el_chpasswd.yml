@@ -1,0 +1,15 @@
+---
+
+#- name: Import Vault
+#  include_vars: vault.yml
+  
+- name: Update passwd for root and systemsupport
+  user:
+    name: '{{ item.name }}'
+    update_password: always
+    password: '{{ item.passwd }}'
+  with_items:
+#    - { name: "systemsupport", passwd: '{{ passwd_adm}}' }
+#    - { name : "root", passwd: '{{ passwd_root }}' }
+    - { name: "systemsupport", passwd: "$6$S6xi4Qs8$vTm3tUdOj/88YJnPnNkhPqqzAgNPqEJiOPJmd4NUdwPYf5qlltA/9L/.YL4OE0yIfHcxa/Tlz.kagLQnB.pb.0" }
+    - { name : "root", passwd: "$6$Zuk./Pw9$B3IhQ1lOwMwP0qxei4yB8wPEsM7xXviiUgC/RMwGoZj2xs2yBJQPZ3wm/7Vb812khOeP7cwZIW.8Ku5KsTh8C/" }

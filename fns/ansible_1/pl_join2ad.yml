@@ -1,0 +1,12 @@
+- hosts: all
+  become: true
+  vars_prompt:
+  - name: 'ad_user'
+    prompt: '[Domain User]?'
+    private: false
+#  - name: 'domain_passwd'
+#    prompt: '[Domain Password]?'
+#    private: true
+  roles:
+    - join2ad
+

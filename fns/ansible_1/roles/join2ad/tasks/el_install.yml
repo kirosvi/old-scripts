@@ -1,0 +1,20 @@
+---
+
+- name: Install pakages
+  yum:
+    name: '{{ item }}'
+    state: 'present'
+  with_items:
+    - samba-winbind-clients 
+    - oddjob-mkhomedir 
+    - pam_krb5 
+    - krb5-libs
+
+- name: Enable services
+  service: 
+    name: '{{ item }}'
+    state: 'started'
+    enabled: 'yes'
+  with_items:
+    - winbind
+    - oddjobd

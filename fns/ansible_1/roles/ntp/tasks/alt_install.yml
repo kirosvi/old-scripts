@@ -1,0 +1,17 @@
+---
+
+- name: Install additional software (ALT)
+  apt_rpm:
+    name: '{{ item }}'
+    state: 'present'
+    update_cache: yes
+  with_items:
+    - openntpd
+    - ntpdate
+    - tzdata
+
+- name: Enabling ntpd
+  service: 
+    name: 'ntpd'
+    state: 'started'
+    enabled: 'yes'

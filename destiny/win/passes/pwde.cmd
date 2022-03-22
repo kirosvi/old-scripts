@@ -1,0 +1,1 @@
+powershell C:\scripts\pass_time\pwde.ps1

@@ -1,0 +1,9 @@
+---
+
+- name: Install Software (RHEL/OEL)
+  include: el_install.yml
+  when: ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+
+- name: Install Software (ALT)
+  include: alt_install.yml
+  when: ansible_distribution == 'ALT'

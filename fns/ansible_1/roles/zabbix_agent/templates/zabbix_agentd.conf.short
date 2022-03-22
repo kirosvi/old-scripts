@@ -1,0 +1,11 @@
+PidFile=/var/run/zabbix/zabbix_agentd.pid
+LogFile=/var/log/zabbix/zabbix_agentd.log
+LogFileSize=1
+Server={{ zabbix_servers }}
+ListenPort=10050
+ListenIP={{ ansible_default_ipv4.address }}
+ServerActive={{ zabbix_active }}:10051
+Hostname={{ ansible_hostname }}.dpc.tax.nalog.ru
+HostMetadata=LinuxServer
+Timeout=30
+Include=/etc/zabbix/conf.d/*.conf 

@@ -1,0 +1,56 @@
+---
+
+- set_fact: confdir='/etc/zabbix/conf.d'
+
+- name: Create ext conf directory
+  file: 
+    path: '{{ confdir }}'
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create script directory 
+  file: 
+    path: '{{ confdir }}/sh'
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+
+- name: Copy zabbix script
+  copy:
+    src: '{{ item }}'
+    dest: '{{ confdir }}/sh/{{ item }}'
+    owner: 'root'
+    group: 'root'
+    mode: '0775'
+  with_items:
+    - 'iostat-collect.sh'
+    - 'iostat-parse.sh'
+
+- name: Copy zabbix extend config
+  copy:
+    src: '{{ item }}'
+    dest: '{{ confdir }}/'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  with_items:
+    - 'iostat.conf'
+    - 'winbind.conf'
+
+- name: Set ACL
+  acl:
+    path: '{{ item }}'
+    entity: "n7701-g-zabbix_admins"
+#    entity: "n7701-test"
+    etype: 'group'
+    permissions: 'rwx'
+    state: 'present'
+  with_items:
+    - '{{ confdir }}/sh/'
+    - '{{ confdir }}/sh/iostat-collect.sh'
+    - '{{ confdir }}/sh/iostat-parse.sh'
+  when:  ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+

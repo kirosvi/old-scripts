@@ -1,0 +1,5 @@
+/var/log/repo/*.log {
+        rotate 4
+        weekly
+        compress
+}

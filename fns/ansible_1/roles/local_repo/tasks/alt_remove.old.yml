@@ -1,0 +1,21 @@
+---
+
+- name: Find old repo files (ALT)
+  find:
+    paths: "/etc/apt/sources.list.d/"
+    patterns: "*.list"
+  register: find_results
+
+#- debug:
+#    var: find_results
+
+- name: Remove old repo files
+  file:
+    path: '{{ item.path }}'
+    state: absent
+  with_items: '{{ find_results.files }}'
+
+- name: Remove sorce.list in (ALT)
+  file:
+    path: /etc/apt/sources.list
+    state: absent

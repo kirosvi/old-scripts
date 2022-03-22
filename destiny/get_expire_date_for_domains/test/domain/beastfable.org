@@ -1,0 +1,160 @@
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+refer:        whois.pir.org
+
+domain:       ORG
+
+organisation: Public Interest Registry (PIR)
+address:      11911 Freedom Drive 10th Floor,
+address:      Suite 1000
+address:      Reston, VA 20190
+address:      United States
+
+contact:      administrative
+name:         Director of Operations, Compliance and Customer Support
+organisation: Public Interest Registry (PIR)
+address:      11911 Freedom Drive 10th Floor,
+address:      Suite 1000
+address:      Reston, VA 20190
+address:      United States
+phone:        +1 703 889 5778
+fax-no:       +1 703 889 5779
+e-mail:       ops@pir.org
+
+contact:      technical
+name:         Senior Director, DNS Infrastructure Group
+organisation: Afilias
+address:      Building 3, Suite 105
+address:      300 Welsh Road
+address:      Horsham, Pennsylvania 19044
+address:      United States
+phone:        +1 215.706.5700
+fax-no:       +1 215.706.5701
+e-mail:       tld-tech-poc@afilias.info
+
+nserver:      A0.ORG.AFILIAS-NST.INFO 199.19.56.1 2001:500:e:0:0:0:0:1
+nserver:      A2.ORG.AFILIAS-NST.INFO 199.249.112.1 2001:500:40:0:0:0:0:1
+nserver:      B0.ORG.AFILIAS-NST.ORG 199.19.54.1 2001:500:c:0:0:0:0:1
+nserver:      B2.ORG.AFILIAS-NST.ORG 199.249.120.1 2001:500:48:0:0:0:0:1
+nserver:      C0.ORG.AFILIAS-NST.INFO 199.19.53.1 2001:500:b:0:0:0:0:1
+nserver:      D0.ORG.AFILIAS-NST.ORG 199.19.57.1 2001:500:f:0:0:0:0:1
+ds-rdata:     26974 8 2 4fede294c53f438a158c41d39489cd78a86beb0d8a0aeaff14745c0d16e1de32
+
+whois:        whois.pir.org
+
+status:       ACTIVE
+remarks:      Registration information: http://www.pir.org
+
+created:      1985-01-01
+changed:      2020-10-27
+source:       IANA
+
+# whois.pir.org
+
+Domain Name: BEASTFABLE.ORG
+Registry Domain ID: D173276465-LROR
+Registrar WHOIS Server: https://www.nic.ru/whois
+Registrar URL: https://www.nic.ru/whois
+Updated Date: 2021-07-11T00:48:26Z
+Creation Date: 2014-07-12T08:16:30Z
+Registry Expiry Date: 2022-07-12T08:16:30Z
+Registrar Registration Expiration Date:
+Registrar: Regional Network Information Center, JSC dba RU-CENTER
+Registrar IANA ID: 463
+Registrar Abuse Contact Email: tld-abuse@nic.ru
+Registrar Abuse Contact Phone: +7.4959944601
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Privacy protection service - whoisproxy.ru
+Registrant State/Province: Moscow
+Registrant Country: RU
+Name Server: DNS1.WEBDRIVE.RU
+Name Server: DNS2.WEBDRIVE.RU
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form https://www.icann.org/wicf/)
+>>> Last update of WHOIS database: 2021-07-20T09:36:54Z <<<
+
+# https
+
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+refer:        whois.pir.org
+
+domain:       ORG
+
+organisation: Public Interest Registry (PIR)
+address:      11911 Freedom Drive 10th Floor,
+address:      Suite 1000
+address:      Reston, VA 20190
+address:      United States
+
+contact:      administrative
+name:         Director of Operations, Compliance and Customer Support
+organisation: Public Interest Registry (PIR)
+address:      11911 Freedom Drive 10th Floor,
+address:      Suite 1000
+address:      Reston, VA 20190
+address:      United States
+phone:        +1 703 889 5778
+fax-no:       +1 703 889 5779
+e-mail:       ops@pir.org
+
+contact:      technical
+name:         Senior Director, DNS Infrastructure Group
+organisation: Afilias
+address:      Building 3, Suite 105
+address:      300 Welsh Road
+address:      Horsham, Pennsylvania 19044
+address:      United States
+phone:        +1 215.706.5700
+fax-no:       +1 215.706.5701
+e-mail:       tld-tech-poc@afilias.info
+
+nserver:      A0.ORG.AFILIAS-NST.INFO 199.19.56.1 2001:500:e:0:0:0:0:1
+nserver:      A2.ORG.AFILIAS-NST.INFO 199.249.112.1 2001:500:40:0:0:0:0:1
+nserver:      B0.ORG.AFILIAS-NST.ORG 199.19.54.1 2001:500:c:0:0:0:0:1
+nserver:      B2.ORG.AFILIAS-NST.ORG 199.249.120.1 2001:500:48:0:0:0:0:1
+nserver:      C0.ORG.AFILIAS-NST.INFO 199.19.53.1 2001:500:b:0:0:0:0:1
+nserver:      D0.ORG.AFILIAS-NST.ORG 199.19.57.1 2001:500:f:0:0:0:0:1
+ds-rdata:     26974 8 2 4fede294c53f438a158c41d39489cd78a86beb0d8a0aeaff14745c0d16e1de32
+
+whois:        whois.pir.org
+
+status:       ACTIVE
+remarks:      Registration information: http://www.pir.org
+
+created:      1985-01-01
+changed:      2020-10-27
+source:       IANA
+
+# whois.pir.org
+
+Domain Name: BEASTFABLE.ORG
+Registry Domain ID: D173276465-LROR
+Registrar WHOIS Server: https://www.nic.ru/whois
+Registrar URL: https://www.nic.ru/whois
+Updated Date: 2021-07-11T00:48:26Z
+Creation Date: 2014-07-12T08:16:30Z
+Registry Expiry Date: 2022-07-12T08:16:30Z
+Registrar Registration Expiration Date:
+Registrar: Regional Network Information Center, JSC dba RU-CENTER
+Registrar IANA ID: 463
+Registrar Abuse Contact Email: tld-abuse@nic.ru
+Registrar Abuse Contact Phone: +7.4959944601
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Privacy protection service - whoisproxy.ru
+Registrant State/Province: Moscow
+Registrant Country: RU
+Name Server: DNS1.WEBDRIVE.RU
+Name Server: DNS2.WEBDRIVE.RU
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form https://www.icann.org/wicf/)
+>>> Last update of WHOIS database: 2021-07-20T09:37:39Z <<<
+
+# https
+

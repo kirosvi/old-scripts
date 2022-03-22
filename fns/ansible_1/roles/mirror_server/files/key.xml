@@ -1,0 +1,17 @@
+<repomd>
+        <data type="other">
+                <checksum type="sha">f73a5c6c04392404cf01036d339b72cb2c91ed9c</checksum>
+                <timestamp>1447585273</timestamp>
+                <open-checksum type="sha">19f41001c938535fac2cd3b1633569c7ccd8e997</open-checksum>
+        </data>
+        <data type="filelists">
+                <checksum type="sha">3c3a911d9e4ba2513b2810d25af05d853a332c96</checksum>
+                <timestamp>1447585273</timestamp>
+                <open-checksum type="sha">733df3ed1ef06cb04f12e6813271d2055007c02d</open-checksum>
+        </data>
+        <data type="primary">
+                <checksum type="sha">f1ef2e0fca688d3e6ee1d55d72e917d08947508b</checksum>
+                <timestamp>1447585273</timestamp>
+                <open-checksum type="sha">c7efc3985a7de5309466fb0ac2052fd264f0bea8</open-checksum>
+        </data>
+</repomd>

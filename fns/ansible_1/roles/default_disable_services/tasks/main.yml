@@ -1,0 +1,13 @@
+---
+
+- name: Disable services systemd (RHEL/OEL 7)
+  include: disable_systemd.yml
+  when: ansible_service_mgr == 'systemd' and ( ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux' )
+
+- name: Disable services sysinit (RHEL/OEL 6)
+  include: disable_sysinit.yml
+  when: ansible_service_mgr == 'upstart' and ( ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux' )
+
+- name: Disable services sysinit (ALT)
+  include: disable_sysinit_alt.yml
+  when: ansible_service_mgr == 'sysvinit' and  ansible_distribution == 'ALT'

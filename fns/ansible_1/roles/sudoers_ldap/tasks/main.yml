@@ -1,0 +1,5 @@
+---
+
+- name:                 Settings sudoers (RHEL/OEL)
+  include:              'el_sudoers.yml'
+  when:                 ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'

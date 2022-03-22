@@ -1,0 +1,178 @@
+#!/bin/bash +x
+
+ 
+### Constants
+LIST=/home/systemsupport/dlisovsky/list
+CLIST=/tmp/.tmp_clist
+USER="systemsupport"
+C=0
+S=0
+T=0
+
+
+### Functions
+function echo_help() {
+    echo -e "\nUsage for $0:\n
+    $0 [-c <command>]
+    $0 [-m -c <command>]
+    $0 [-c <command> -l /path/to/list]
+    $0 [-m -c <command> -l /path/to/list]
+    $0 [-t /path/to/file -u <user> -l /path/to/list]
+    \nKeys:
+    -c <command>          Run command. Command must be in quotes.
+    -s /path/to/script    Run specified script.
+    -t /path/to/file      SCP specified file to remote host in '/tmp/'.
+    -l /path/to/list      Specify another list with hosts. By default uses '/home/systemsupport/dlisovsky/list'.
+    -m                    Multiple execute
+    -u <user>             Specify another user. By default uses 'systemsupport'.
+    -h                    Show this help.\n"
+}
+
+
+function lane() {
+  cl=$(stty size |cut -d " " -f2)
+  python -c "print '-'*$cl";
+}
+
+
+function hname() {
+  echo -e " === "$1" ("$(ssh "$1" "hostname -s")") === \n" ;
+}
+
+
+### Get options
+while getopts "c:s:t:l:u:mh" options ;
+do
+  case $options in
+  c)
+    CMD="$OPTARG"
+    C=1
+  ;;
+  s)
+    PSH="$OPTARG"
+    S=1
+  ;;
+  t)
+    FILE="$OPTARG"
+    T=1
+  ;;
+  l)
+    LIST="$OPTARG"
+  ;;
+  m)
+    M=1
+  ;;
+  u)
+    USER="$OPTARG"
+  ;;
+  h)
+    echo_help
+    exit 0
+  ;;
+  *)
+    echo " None defined options!"
+    exit 1
+  esac
+OPTS="$OPTS$options"
+done
+
+
+### Check for valid collection of options
+CHECK=$(echo "$C+$S+$T" |bc)
+if [[ "$CHECK" -gt 1 ]]; then
+  echo "Must specify only one parametr: 's' or 'c' or 't'"
+  exit 1
+elif [[ "$CHECK" -lt 1 ]]; then
+  echo "Must specify at least one parametr: 's' or 'c' or 't'"
+  exit 1
+fi
+
+
+### Get PASSWD for specified user
+if [[ "${USER}" != "systemsupport" ]]; then
+  echo -n "passwd for "$USER": "
+  read -s 'PASSWD'
+fi
+
+### Get Clean List
+:> $CLIST
+for i in $(cat "$LIST"); do
+  y=$( echo $i | grep -v "^#")
+  if [ "$y" ]; then
+    #LST+="$y "
+    echo "$y" >> $CLIST
+  else
+    continue
+  fi
+done
+
+### Get standardized value with options
+LENGTH=${#OPTS}
+for l in  $(seq 1 $LENGTH); do
+  s=$(echo `expr substr $OPTS $l 1`)
+  array+=( "$s" )
+done
+IFS=$'\n' sorted=($(sort <<<"${array[*]}"))
+for i in "${sorted[@]}"; do
+  SOPTS+=$i;
+done
+#echo "$SOPTS"
+
+
+### Operations list
+case "$SOPTS" in
+  c | cl )
+    lane;
+    for i in $(cat "$CLIST"); do
+      hname "$i"
+      ssh "$USER"@"$i" "$CMD"
+      lane
+    done
+  ;;
+  cu | clu )
+    lane
+      for i in $(cat "$CLIST"); do
+      hname "$i"
+      sshpass -p "$PASSWD" ssh "$USER"@"$i" "$CMD"
+      lane
+    done
+  ;;
+  s | ls )
+    lane
+    for i in $(cat "$CLIST"); do
+      hname "$i"
+      ssh "$USER"@"$i" "sudo bash -s" < "$PSH"
+      lane
+    done
+  ;;
+  su | lsu)
+    lane
+    for i in $(cat "$CLIST"); do
+      hname "$i"
+      sshpass -p "$PASSWD" ssh "$USER"@"$i" "sudo bash -s" < "$PSH"
+      lane
+    done
+  ;;
+  t | lt )
+    lane;
+    for i in $(cat "$CLIST"); do
+      hname "$i"
+      scp "$FILE" ""$USER"@"$i":/tmp/"
+      lane
+    done
+  ;;
+  tu | ltu )
+    lane
+    for i in $(cat "$CLIST"); do
+      hname "$i"
+      sshpass -p "$PASSWD" scp "$FILE" "$USER"@"$i":/tmp/
+      lane
+    done
+  ;;
+  cm | clm )
+    mpssh -f "$CLIST" "$CMD"
+  ;;
+  ms | lms )
+    mpssh -f "$CLIST" -r "$PSH"
+  ;;
+esac

@@ -1,0 +1,14 @@
+---
+
+- name: Disable default services (sysinit)
+  service:
+    name: '{{ item }}'
+    state: 'stopped'
+    enabled: 'no'
+  with_items:
+    - iptables
+    - ip6tables
+
+- name: Disable SELinux (sysinit)
+  selinux:
+    state: 'disabled'

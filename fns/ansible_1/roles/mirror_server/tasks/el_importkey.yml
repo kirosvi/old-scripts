@@ -1,0 +1,48 @@
+---
+
+- name: Copy gpg keys (RHEL/OEL)
+  copy:
+    src: '{{ item }}'
+    dest: '/etc/pki/rpm-gpg/{{ item }}'
+    mode: '644'
+    owner: 'root'
+    group: 'root'
+  with_items:
+    - RPM-GPG-KEY-2NDQ-BDR-94
+    - RPM-GPG-KEY-EPEL-6
+    - RPM-GPG-KEY-EPEL-6Server
+    - RPM-GPG-KEY-EPEL-7
+    - RPM-GPG-KEY-EPEL-7Server
+    - RPM-GPG-KEY-mongodb-3.4
+    - RPM-GPG-KEY-mongodb-3.6
+    - RPM-GPG-KEY-mongodb-4.0
+    - RPM-GPG-KEY-PGDG-10
+    - RPM-GPG-KEY-PGDG-94
+    - RPM-GPG-KEY-PGDG-95
+    - RPM-GPG-KEY-PGDG-96
+    - RPM-GPG-KEY-POSTGRESPRO
+    - RPM-GPG-KEY-webtatic-el6
+    - RPM-GPG-KEY-webtatic-el7
+    - RPM-GPG-KEY-ZABBIX
+
+- name: Import gpg keys (RHEL/OEL)
+  rpm_key:
+    state: 'present'
+    key: '/etc/pki/rpm-gpg/{{ item }}'
+  with_items:
+    - RPM-GPG-KEY-2NDQ-BDR-94
+    - RPM-GPG-KEY-EPEL-6
+    - RPM-GPG-KEY-EPEL-6Server
+    - RPM-GPG-KEY-EPEL-7
+    - RPM-GPG-KEY-EPEL-7Server
+    - RPM-GPG-KEY-mongodb-3.4
+    - RPM-GPG-KEY-mongodb-3.6
+    - RPM-GPG-KEY-mongodb-4.0
+    - RPM-GPG-KEY-PGDG-10
+    - RPM-GPG-KEY-PGDG-94
+    - RPM-GPG-KEY-PGDG-95
+    - RPM-GPG-KEY-PGDG-96
+    - RPM-GPG-KEY-POSTGRESPRO
+    - RPM-GPG-KEY-webtatic-el6
+    - RPM-GPG-KEY-webtatic-el7
+    - RPM-GPG-KEY-ZABBIX

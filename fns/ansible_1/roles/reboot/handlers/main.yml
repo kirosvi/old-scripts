@@ -1,0 +1,4 @@
+---
+
+- name: Reboot Server
+  command: 'shutdown -r 1'

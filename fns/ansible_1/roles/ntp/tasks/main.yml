@@ -1,0 +1,25 @@
+---
+
+- name: Set localtime file (RHEL/OEL)
+  include: el_localtime.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Install ntp (RHEL/OEL)
+  include: el_install.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Set ntp config (RHEL/OEL)
+  include: el_ntp.yml  
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Set localtime file (ALT)
+  include: alt_localtime.yml
+  when: ansible_distribution == 'ALT'
+
+- name: Install ntp (ALT)
+  include: alt_install.yml
+  when: ansible_distribution == 'ALT'
+
+- name: Set ntp config (ALT)
+  include: alt_ntp.yml  
+  when: ansible_distribution == 'ALT'

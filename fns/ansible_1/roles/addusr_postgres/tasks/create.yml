@@ -1,0 +1,19 @@
+---
+
+- name: Ensure group "dba" exists
+  group:
+    name: 'dba'
+    state: present
+    gid: '400'
+
+- name: Create user
+  user:
+    name: 'postgres'
+    comment: 'Service dba'
+    group: 'dba'
+    shell: '/bin/bash'
+    system: yes
+    create_home: yes
+    state: present
+    password: '$6$LwVdkGWD$LSbig.SFlfEkeLLGJkjcrqaLn6sm5/lOGvjFGeAcJ3bxGocWy8rSoVf4mXx.DB6NnoM6wRdxxMHy0WI.10BiR/'
+    update_password: always

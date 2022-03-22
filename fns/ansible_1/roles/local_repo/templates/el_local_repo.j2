@@ -1,0 +1,114 @@
+[{{ os_dstr|lower }}-{{ ansible_distribution_major_version }}-server-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/{{ os_dstr|lower }}-{{ ansible_distribution_major_version}}-server-rpms/
+enabled=1
+gpgcheck=0
+
+[zabbix-3.4-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/zabbix-3.4-rpms/
+enabled=1
+gpgcheck=0
+
+[epel-{{ ansible_distribution_major_version }}-server-srpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/epel-{{ ansible_distribution_major_version}}-server-srpms/
+enabled=1
+gpgcheck=0
+
+{% if repo_pgee_96 %}
+[pgee-9.6-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/pgee-9.6-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_pgpro_std_966 %}
+[pgpro-std-9.6.6-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/pgpro-std-9.6.6-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_pgpro_std_96_lt %}
+[pgpro-std-9.6-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/pgpro-std-9.6-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_pgdg_94 %}
+[pgdg-9.4-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/pgdg-9.4-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_pgdg_95 %}
+[pgdg-9.5-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/pgdg-9.5-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_pgdg_bdr_94 %}
+[pgdg-bdr-9.4-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/pgdg-bdr-9.4-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_mongo_34 %}
+[mongodb-org-3.4-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/mongodb-org-3.4-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_mongo_36 %}
+[mongodb-org-3.6-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/mongodb-org-3.6-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_mongo_40 %}
+[mongodb-org-4.0-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/mongodb-org-4.0-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if ansible_distribution == 'RedHat' and ansible_distribution_major_version == '7' %}
+{% if repo_rhel_extras %}
+[{{ os_dstr|lower }}-{{ ansible_distribution_major_version }}-server-extras-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/rhel-7-server-extras-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+{% if repo_rhel_optional %}
+[{{ os_dstr|lower }}-{{ ansible_distribution_major_version }}-server-optional-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/rhel-7-server-optional-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+
+{% if repo_rhel_ansible_26 %}
+[{{ os_dstr|lower }}-{{ ansible_distribution_major_version }}-ansible-2.6-rpms]
+name=Local mirror repository
+baseurl=http://{{ mirror_server }}/mirror/{{ os_dstr }}-v{{ ansible_distribution_major_version }}/rhel-7-ansible-2.6-rpms/
+enabled=1
+gpgcheck=0
+{% endif %}
+{% endif %}

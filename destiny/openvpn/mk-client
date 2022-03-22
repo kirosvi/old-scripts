@@ -1,0 +1,71 @@
+#!/bin/bash
+
+USAGE="Usage: mk-client <client name>"
+
+client_name=$1
+
+[[ -n "$client_name" ]] || { echo $USAGE; exit 0 ; }
+
+#Проверка на существующего клиента
+[[ ! -f "/etc/openvpn/keys/client/$client_name.tgz" ]] || { echo "\"$client_name\" client has already been created"; exit 0 ; }
+
+
+export EASY_RSA="/etc/openvpn/easy-rsa"
+export OPENSSL="openssl"
+export PKCS11TOOL="pkcs11-tool"
+export GREP="grep"
+export KEY_CONFIG="`/etc/openvpn/easy-rsa/whichopensslcnf /etc/openvpn/easy-rsa`"
+export KEY_DIR="/etc/openvpn/easy-rsa/keys"
+export PKCS11_MODULE_PATH="dummy"
+export PKCS11_PIN="dummy"
+export KEY_SIZE=1024
+export CA_EXPIRE=3650
+export KEY_EXPIRE=3650
+export KEY_COUNTRY="RU"
+export KEY_PROVINCE="MO"
+export KEY_CITY="Moscow"
+export KEY_ORG="Destiny Development"
+export KEY_EMAIL="admin@ddestiny.ru"
+
+cd /etc/openvpn/easy-rsa
+./build-key $client_name
+cd keys
+mkdir /etc/openvpn/keys/client/$client_name
+cp $client_name.crt /etc/openvpn/keys/client/$client_name/
+cp $client_name.key /etc/openvpn/keys/client/$client_name/
+cp /etc/openvpn/keys/ca.crt /etc/openvpn/keys/client/$client_name/
+cp /etc/openvpn/keys/dh1024.pem /etc/openvpn/keys/client/$client_name/
+cp /etc/openvpn/keys/ta.key /etc/openvpn/keys/client/$client_name/
+cd /etc/openvpn/keys/client/
+chmod a+r /etc/openvpn/keys/client/$client_name/*
+tar czf $client_name.tgz $client_name
+rm -rf /etc/openvpn/keys/client/$client_name/
+
+cd /etc/openvpn/ccd
+
+#Берем первый ip из списка и проверяем его на незанятость, если занят то идем по списку дальше
+client_ip=""
+flag=0
+for ip in `grep -v "^\#" /etc/openvpn/ip_all`
+do
+    if [ "$flag" = "0" ]
+    then
+        useip=`grep " $ip " /etc/openvpn/ccd/*`
+        if [ "x$useip" = "x" ]
+        then
+            client_ip=$ip
+            flag=1
+        fi
+    fi
+done
+cat > $client_name << __EOF
+ifconfig-push $client_ip 255.255.255.0
+push "route 10.1.20.0 255.255.255.0 10.1.10.1"
+push "route 10.1.21.0 255.255.255.0 10.1.10.1"
+push "route 10.1.22.0 255.255.255.0 10.1.10.1"
+push "route 10.1.23.0 255.255.255.0 10.1.10.1"
+push "redirect-gateway def1"
+push "route-gateway 10.1.10.1"
+push "dhcp-option DNS 10.1.10.1"
+push "dhcp-option DOMAIN ddestiny.ru"
+__EOF

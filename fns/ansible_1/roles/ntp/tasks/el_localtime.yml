@@ -1,0 +1,9 @@
+---
+
+- name: Placing clock
+  copy:
+    src: "Moscow"
+    dest: "/etc/localtime"
+    owner: "root"
+    group: "root"
+    mode: "0644"

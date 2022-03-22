@@ -1,0 +1,10 @@
+#!/bin/bash
+cryptsetup luksOpen /dev/docs/DocsShare1 DocsShare1cr
+cryptsetup luksOpen /dev/docs/notebookcr NBCR
+cryptsetup luksOpen /dev/bkup/DocsBakup1new DocsBakup1crnew
+mount /dev/mapper/DocsShare1cr /mnt/shares/Docs/
+mount /dev/mapper/NBCR /mnt/shares/notebooks/
+#mount /dev/mapper/DocsBakup1crnew /mnt/backups/1/
+mount /dev/mapper/DocsBakup1 /mnt/backups/1/
+mount /dev/bkup/DocsBakup2 /mnt/backups/2/
+chmod 770 /mnt/shares/*

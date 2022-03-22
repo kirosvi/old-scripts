@@ -1,0 +1,50 @@
+## Defaults specification
+Defaults        !requiretty
+Defaults:ALL    targetpw
+Defaults:ALL    timestamp_timeout=0
+
+## Super admins user alias specification
+User_Alias      ROOT_ADM = %n7701_nix_os_adm, systemsupport, n7701-00049, n7701-00-328, n7701-00044
+User_Alias      SRK_ADM = %n7701_nix_srk_adm
+User_Alias      ZBX_ADM = %n7701_nix_zbx_adm, n7701-00-190, n7701-00-284, n7701-00-336
+
+## Software admins user alias specification
+User_Alias      DEVELOPER = %n7701_nix_sys_adm, %n7701_nix_app_dev
+User_Alias      SOFT_ADM = %n7701_nix_app_adm
+User_Alias      DATA_ADM = %n7701_nix_oradb_adm, %n7701_nix_sqldb_adm
+
+## Runas alias specification
+Runas_Alias     HDP_RUN = root, hdfs, mapred, yarn, hive, flink, spark, hbase, ignite, nifi, postgres, kylo, activemq, elasticsearch
+Runas_Alias     DEV_RUN = ALL, !root
+Runas_Alias     SOFT_RUN = ALL, !root
+Runas_Alias     DATA_RUN = ALL, !root
+
+## Cmnd alias specification
+Cmnd_Alias      SHEL_CMD = /bin/sh, /bin/bash
+Cmnd_Alias      BAN_CMD = /usr/bin/chattr, /usr/bin/crontab, /bin/su
+Cmnd_Alias      SOFTWARE_CMD = /bin/rpm, /usr/bin/apt-get, /usr/bin/apt-cache, /bin/tar
+Cmnd_Alias      SERVICE_CMD = /sbin/service, /sbin/chkconfig, /bin/kill, /usr/bin/killall
+Cmnd_Alias      PERMIT_CMD = /bin/chown, /bin/chmod
+Cmnd_Alias      VIEW_CMD = /bin/more, /usr/bin/less, /bin/cat, /bin/tail, /bin/head
+Cmnd_Alias      COPY_CMD = /bin/cp, /bin/mv
+
+## Cmnd additional alias specification
+Cmnd_Alias      BACKUP_CMD = /tmp/NetBackup*/install, /usr/openv/netbackup/bin/*, /usr/openv/netbackup/logs/*
+Cmnd_Alias      ZBX_CMD = /usr/bin/wbinfo, /bin/rm -rf /lib/pgsql/9.5/backups/*
+Cmnd_Alias      PCMAKER_CMD = /sbin/crm*, /sbin/pcs
+
+
+
+## Super admins privilege specification
+ROOT_ADM        ALL=(ALL)       NOPASSWD: ALL
+DEVELOPER       ALL=(root)      NOPASSWD: ALL
+SRK_ADM         ALL=(root)      NOPASSWD: BACKUP_CMD, PERMIT_CMD, VIEW_CMD
+ZBX_ADM         ALL=(root)      NOPASSWD: SOFTWARE_CMD, SERVICE_CMD, PERMIT_CMD, VIEW_CMD, COPY_CMD, (zabbix) NOPASSWD: ALL
+
+## Software admins privilege specification
+SOFT_ADM        ALL=(root)      NOPASSWD: SOFTWARE_CMD, SERVICE_CMD, PERMIT_CMD, VIEW_CMD, COPY_CMD, PCMAKER_CMD, (SOFT_RUN) NOPASSWD: ALL
+DATA_ADM        ALL=(root)      NOPASSWD: SOFTWARE_CMD, SERVICE_CMD, PERMIT_CMD, VIEW_CMD, COPY_CMD, (DATA_RUN) NOPASSWD: ALL
+
+## Additional privilege specification
+zabbix          ALL=(root)      NOPASSWD: ZBX_CMD
+ansible         ALL=(HDP_RUN)   NOPASSWD: ALL

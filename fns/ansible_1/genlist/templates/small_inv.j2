@@ -1,0 +1,85 @@
+---
+
+all:
+  vars:
+    change_repo_list:                  'true'
+    repo_rhel_extras:                  false
+    repo_rhel_optional:                false
+    repo_rhel_ansible_26:              false
+    repo_pgdg_bdr_94:                  false
+    repo_pgee_96:                      false
+    repo_pgpro_std_966:                false
+    repo_pgpro_std_96_lt:              false
+    repo_pgdg_94:                      false
+    repo_pgdg_95:                      false
+    repo_mongo_34:                     false
+    repo_mongo_36:                     false
+    repo_mongo_40:                     false
+    change_zabbix_agentd:              'true'
+    change_resolv:                     'true'
+  children:
+    MSK:                                # AREA Moscow
+      vars:
+        cod_ou:                         UN
+      children:
+        MSK_inside:                     # Segment inside
+          vars:
+            segment:                    'inside'
+            realm:                      'DU'
+            work_group:                 'DPC'
+            sudo_server:                'ldap://10. ldap://10'
+            mirror_server:              '10.'
+            name_server:                ['']
+            zbx_active:                  '1
+            zbx_passive:                 '125'
+            sys_ou:                    'System'
+#          hosts: {% if msk_inside|length > 0 %}
+          hosts:{% for host in msk_inside %}
+            {{ host }}: {% endfor%}{% endif %}
+        MSK_rDMZ:                       # Segment rDMZ
+          vars:
+            segment:                    'Z'
+            realm:                      '.T'
+            work_group:                 ''
+            sudo_server:                'p:'
+            mirror_server:              '25
+            name_server:                [.2'1]
+            zbx_active:                  .2
+            zbx_passive:                 .2
+            sys_ou:                    'System'
+#          hosts: {% if msk_rdmz|length > 0 %}
+          hosts:{% for host in msk_rdmz %}
+            {{ host }}: {% endfor%}{% endif %}
+        MSK_iDMZ:                       # Segment iDMZ
+          vars:
+            segment:                    '
+            realm:                      '
+            work_group:                 '
+            sudo_server:                '3
+            mirror_server:              '
+            name_server:                [0.15.59']
+            zbx_active:                  
+            zbx_passive:                 5.42'
+            sys_ou:                    'S
+#          hosts: {% if msk_idmz|length > 0 %}
+          hosts:{% for host in msk_idmz %}
+            {{ host }}: {% endfor%}{% endif %}
+    DBN:                                # AREA Dubna
+      vars:
+        cod_ou:                         UNS5001
+      children:
+        DBN_inside:                     # Segment inside
+          vars:
+            segment:                    '
+            realm:                      '
+            work_group:                 '
+            sudo_server:                '
+            mirror_server:              '
+            name_server:                [
+            zbx_active:                  
+            zbx_passive:                 
+            sys_ou:                    'Systems'
+#          hosts: {% if dbn_inside|length > 0 %}
+          hosts:{% for host in dbn_inside %}
+            {{ host }}: {% endfor%}{% endif %}
+

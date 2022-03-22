@@ -1,0 +1,15 @@
+Boyko-Romanovsky Konstantin    Constantin
+
+
+
+
+Get-MailboxStatistics | Sort-Object TotalItemSize 'Descending | ft DisplayName,@{ expression={$_.TotalItemSize.Value.ToKB()}},ItemCount
+
+
+Get-MailboxStatistics | ft DisplayName,@{ expression={$_.TotalItemSize.Value.ToMB()}} | Sort-Object TotalItemSize
+
+Get-Mailbox -identity kandryushchenko |Export-Mailbox -IncludeFolders "\Удаленные" -StartDate "12/07/2008" -EndDate "09/05/2013" -DeleteContent -Confirm:$false
+
+
+
+for ($y=10; $m -lt 14; $y++) { for ($m=1; $m -lt 12; $m++) { for ($d=1; $d -lt 31; $d++) { $date="$d/$m/$y";Get-Mailbox -identity amikhailov |Export-Mailbox -IncludeFolders "\Входящие" -StartDate "01/01/2009" -EndDate "$d/$m/$y" -DeleteContent -Confirm:$false; write-host "$date" }}}

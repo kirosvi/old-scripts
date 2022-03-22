@@ -1,0 +1,37 @@
+---
+
+- name: Serach Ext sudoers files
+  find:
+    paths: '/etc/sudoers.d/'
+    patterns: '*'
+  register: sudo_files
+
+- name: Disable immutable (RHEL/OEL)
+  file:
+    path: '/etc/sudoers'
+    attributes: 'e'
+
+- name: Disable immutable (RHEL/OEL)
+  file:
+    path: '{{ item.path }}'
+    attributes: 'e'
+  with_items: '{{ sudo_files.files }}'
+
+- name: Change sudoers files (RHEL/OEL)
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    attributes: 'ie'
+    owner: 'root'
+    group: 'root'
+    mode: '0600'
+  with_items:
+    - { src: 'sudoers', dest: '/etc/sudoers' }
+    - { src: 'admins', dest: '/etc/sudoers.d/admins' }
+
+- name: Remove ext files (RHEL/OEL)
+  file:
+    path: '{{ item.path }}'
+    state: absent
+  with_items: '{{ sudo_files.files }}'
+  when: remove_old_sudo

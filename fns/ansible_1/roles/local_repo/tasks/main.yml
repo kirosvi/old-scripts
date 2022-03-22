@@ -1,0 +1,27 @@
+---
+
+- set_fact:
+    delete_old_repo: False
+  when: delete_old_repo is undefined
+
+- include: el_remove.old.yml
+  when: 
+    - delete_old_repo
+    - change_repo_list
+    - ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+
+- include: alt_remove.old.yml
+  when:
+    - delete_old_repo
+    - change_repo_list
+    - ansible_distribution == 'ALT'
+  
+- include: el_localrepo.yml
+  when: 
+    - change_repo_list
+    - ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+
+- include: alt_localrepo.yml
+  when:
+    - change_repo_list 
+    - ansible_distribution == 'ALT'

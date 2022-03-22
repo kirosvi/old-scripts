@@ -1,0 +1,17 @@
+---
+
+- name: Copy repolist (RHEL/OEL)
+  copy:
+    src: 'el_{{ ansible_distribution_major_version }}_additional'
+    dest: '/etc/yum.repos.d/additional.repo'
+    owner: root
+    group: root
+    mode: 755
+
+#- name: Copy key.xml
+#  copy:
+#    src: 'key.xml'
+#    dest: '/var/www/html/key.xml'
+#    owner: 'root'
+#    group: 'root'
+#    mode: '644'

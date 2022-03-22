@@ -1,0 +1,29 @@
+#!/bin/bash
+
+DOWNLOAD_log=/var/log/repo/download_rpm.log
+UPDATE_log=/var/log/repo/create_repo.log
+
+RHEL_REPO_LIST="rhel-6-server-rpms epel-6-server-srpms zabbix-3.4-rpms"
+OEL_REPO_LIST="oel-6-server-rpms oel-6-uekr4 oel-6-uekr3 oel-6-uek-latest oel-6-uek-bas"
+VIRTUOZZO_LIST="virtuozzo-6-rpms virtuozzo-6-update-rpms virtuozzo-6-debug-rpms virtuozzo-6-x86_64-os-rpms virtuozzo-6-x86_64-updates-rpms virtuozzo-6-x86_64-debug-rpms virtuozzo-6-x86_64-debug_updates-rpms"
+
+for REPO_NAME in $RHEL_REPO_LIST;do
+	mkdir -p /mirror/RHEL-v6/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/RHEL-v6/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/RHEL-v6/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/RHEL-v6/$REPO_NAME -g /var/www/html/key.xml >> $UPDATE_log
+done
+
+for REPO_NAME in $OEL_REPO_LIST;do
+	mkdir -p /mirror/OEL-v6/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/OEL-v6/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/OEL-v6/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/OEL-v6/$REPO_NAME -g /var/www/html/key.xml >> $UPDATE_log
+done
+
+for REPO_NAME in $VIRTUOZZO_LIST;do
+	mkdir -p /mirror/virtuozzo/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/virtuozzo/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/virtuozzo/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/virtuozzo/$REPO_NAME -g /var/www/html/key.xml >> $UPDATE_log
+done

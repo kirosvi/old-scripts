@@ -1,0 +1,17 @@
+---
+
+- name: Install pakages
+  apt_rpm:
+    name: '{{ item }}'
+    state: 'present'
+  with_items:
+    - samba-winbind-clients 
+    - pam_krb5 
+
+- name: Enable services
+  service: 
+    name: '{{ item }}'
+    state: 'started'
+    enabled: 'yes'
+  with_items:
+    - winbind

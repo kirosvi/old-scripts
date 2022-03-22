@@ -1,0 +1,10 @@
+---
+
+- name: Install zabbix-agent
+  include: install.yml
+
+- name: Set zabbix extend files
+  include: extended_conf.yml
+
+- name: Set zabbix config
+  include: zabbix_conf.yml

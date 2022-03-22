@@ -1,0 +1,166 @@
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+refer:        whois.afilias.net
+
+domain:       INFO
+
+organisation: Afilias Limited
+address:      Level 2, Plaza 3
+address:      Custom House Plaza
+address:      Harbourmaster Place
+address:      Dublin D01 VY76
+address:      Ireland
+
+contact:      administrative
+name:         Senior Vice President
+organisation: Afilias Limited
+address:      C/O Afilias USA, Inc.
+address:      300 Welsh Road, Building 3
+address:      Suite 105
+address:      Horsham Pennsylvania 19044
+address:      United States
+phone:        +1 215 706 5700
+fax-no:       +1 215 706 5701
+e-mail:       tld-admin-poc@afilias.info
+
+contact:      technical
+name:         Senior Director, DNS Infrastructure Group
+organisation: Afilias Limited
+address:      C/O Afilias USA, Inc.
+address:      300 Welsh Road, Building 3
+address:      Suite 105
+address:      Horsham Pennsylvania 19044
+address:      United States
+phone:        +1 215 706 5700
+fax-no:       +1 215 706 5701
+e-mail:       tld-tech-poc@afilias.info
+
+nserver:      A0.INFO.AFILIAS-NST.INFO 199.254.31.1 2001:500:19:0:0:0:0:1
+nserver:      A2.INFO.AFILIAS-NST.INFO 199.249.113.1 2001:500:41:0:0:0:0:1
+nserver:      B0.INFO.AFILIAS-NST.ORG 199.254.48.1 2001:500:1a:0:0:0:0:1
+nserver:      B2.INFO.AFILIAS-NST.ORG 199.249.121.1 2001:500:49:0:0:0:0:1
+nserver:      C0.INFO.AFILIAS-NST.INFO 199.254.49.1 2001:500:1b:0:0:0:0:1
+nserver:      D0.INFO.AFILIAS-NST.ORG 199.254.50.1 2001:500:1c:0:0:0:0:1
+ds-rdata:     5104 8 2 1af7548a8d3e2950c20303757df9390c26cfa39e26c8b6a8f6c8b1e72dd8f744
+
+whois:        whois.afilias.net
+
+status:       ACTIVE
+remarks:      Registration information: http://www.nic.info
+
+created:      2001-06-26
+changed:      2020-10-15
+source:       IANA
+
+# whois.afilias.net
+
+Domain Name: BEASTFABLE.INFO
+Registry Domain ID: D53116560-LRMS
+Registrar WHOIS Server: https://www.nic.ru/whois
+Registrar URL: http://www.nic.ru
+Updated Date: 2021-07-11T00:48:26Z
+Creation Date: 2014-07-12T08:16:26Z
+Registry Expiry Date: 2022-07-12T08:16:26Z
+Registrar Registration Expiration Date:
+Registrar: Regional Network Information Center, JSC dba RU-CENTER
+Registrar IANA ID: 463
+Registrar Abuse Contact Email: tld-abuse@nic.ru
+Registrar Abuse Contact Phone: +7.4959944601
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Privacy protection service - whoisproxy.ru
+Registrant State/Province: Moscow
+Registrant Country: RU
+Name Server: DNS1.WEBDRIVE.RU
+Name Server: DNS2.WEBDRIVE.RU
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-07-20T09:36:52Z <<<
+
+# https
+
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+refer:        whois.afilias.net
+
+domain:       INFO
+
+organisation: Afilias Limited
+address:      Level 2, Plaza 3
+address:      Custom House Plaza
+address:      Harbourmaster Place
+address:      Dublin D01 VY76
+address:      Ireland
+
+contact:      administrative
+name:         Senior Vice President
+organisation: Afilias Limited
+address:      C/O Afilias USA, Inc.
+address:      300 Welsh Road, Building 3
+address:      Suite 105
+address:      Horsham Pennsylvania 19044
+address:      United States
+phone:        +1 215 706 5700
+fax-no:       +1 215 706 5701
+e-mail:       tld-admin-poc@afilias.info
+
+contact:      technical
+name:         Senior Director, DNS Infrastructure Group
+organisation: Afilias Limited
+address:      C/O Afilias USA, Inc.
+address:      300 Welsh Road, Building 3
+address:      Suite 105
+address:      Horsham Pennsylvania 19044
+address:      United States
+phone:        +1 215 706 5700
+fax-no:       +1 215 706 5701
+e-mail:       tld-tech-poc@afilias.info
+
+nserver:      A0.INFO.AFILIAS-NST.INFO 199.254.31.1 2001:500:19:0:0:0:0:1
+nserver:      A2.INFO.AFILIAS-NST.INFO 199.249.113.1 2001:500:41:0:0:0:0:1
+nserver:      B0.INFO.AFILIAS-NST.ORG 199.254.48.1 2001:500:1a:0:0:0:0:1
+nserver:      B2.INFO.AFILIAS-NST.ORG 199.249.121.1 2001:500:49:0:0:0:0:1
+nserver:      C0.INFO.AFILIAS-NST.INFO 199.254.49.1 2001:500:1b:0:0:0:0:1
+nserver:      D0.INFO.AFILIAS-NST.ORG 199.254.50.1 2001:500:1c:0:0:0:0:1
+ds-rdata:     5104 8 2 1af7548a8d3e2950c20303757df9390c26cfa39e26c8b6a8f6c8b1e72dd8f744
+
+whois:        whois.afilias.net
+
+status:       ACTIVE
+remarks:      Registration information: http://www.nic.info
+
+created:      2001-06-26
+changed:      2020-10-15
+source:       IANA
+
+# whois.afilias.net
+
+Domain Name: BEASTFABLE.INFO
+Registry Domain ID: D53116560-LRMS
+Registrar WHOIS Server: https://www.nic.ru/whois
+Registrar URL: http://www.nic.ru
+Updated Date: 2021-07-11T00:48:26Z
+Creation Date: 2014-07-12T08:16:26Z
+Registry Expiry Date: 2022-07-12T08:16:26Z
+Registrar Registration Expiration Date:
+Registrar: Regional Network Information Center, JSC dba RU-CENTER
+Registrar IANA ID: 463
+Registrar Abuse Contact Email: tld-abuse@nic.ru
+Registrar Abuse Contact Phone: +7.4959944601
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Privacy protection service - whoisproxy.ru
+Registrant State/Province: Moscow
+Registrant Country: RU
+Name Server: DNS1.WEBDRIVE.RU
+Name Server: DNS2.WEBDRIVE.RU
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-07-20T09:37:38Z <<<
+
+# https
+

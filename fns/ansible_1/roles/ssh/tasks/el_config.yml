@@ -1,0 +1,32 @@
+---
+
+- name: Disallow root SSH access uncomment
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+  notify: Restart ssh
+
+- name: Disallow root SSH access comment
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "#PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+  notify: Restart ssh
+
+- name: Configure sshd KrbAuth
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    insertafter: '^# Kerberos options'
+    line: 'KerberosAuthentication yes'
+    state: present
+    create: yes
+  notify: Restart ssh
+
+- name: Enabled sshd
+  service:
+    name: 'sshd'
+    state: 'started'
+    enabled: 'yes'

@@ -1,0 +1,18 @@
+---
+
+- name: Find resolv files
+  find:
+    path: '/etc/net/ifaces/'
+    pattern: 'resolv.conf'
+    recurse: true
+  register: resolv_items.files
+
+- debug:
+    var: resolv_items.files
+
+- name: Delete resolvs
+  file:
+    path: '{{ item.path }}'
+    state: 'absent'
+  with_items: resolv_items.files
+  when: resolv_items is defined

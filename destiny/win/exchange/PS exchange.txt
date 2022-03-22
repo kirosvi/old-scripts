@@ -1,0 +1,109 @@
+прежде чем удалить надо получить доступ к ящику
+!!!!!Установка разрешений на один почтовый ящик!!!!!!!
+
+Открывайте Exchange PowerShell и используйте следующую команду, чтобы предоставить доступ только к одному почтовому ящику для одного пользователя:
+
+формат команды — Add-MailboxPermission -Identity “” -User -AccessRights Fullaccess -InheritanceType all
+
+Пример:
+
+Add-MailboxPermission -Identity “ Test” -User dlisovsky -AccessRights Fullaccess -InheritanceType all
+
+You can grant a user or group full access to all mailboxes by running the following command at a PowerShell prompt:
+get-mailbox -Server <Server> | Add-MailboxPermission -User '<Domain>\<Username or Group>' -AccessRights 'FullAccess'
+Example:
+get-mailbox -Server Mail01 | Add-MailboxPermission -User 'Contoso\Exchange Organization Administrators' -AccessRights 'FullAccess'
+
+ 62030c67-47e0-4bf5-a5d5-523e9aa656dc
+
+Счета Система Сервис и Айхоум
+http://help.outlook.com/ru-ru/140/gg315525.aspx
+
+!!!!!!Удалить письма в ящике aharitonov с темой "день рождения" в каталоге входящие с даты по дату!!!!!!!
+
+Get-Mailbox -identity aharitonov |Export -Mailbox -SubjectKeywords "день рождения" -IncludeFolders "\Входящие" -StartDate "12/02/2009" -EndDate "05/05/2012" -DeleteContent
+
+
+Get-Mailbox -OrganizationalUnit Employees -ResultSize unlimited | Export-Mailbox -SenderKeywords "donotreply@hipchat.ddestiny.ru" -DeleteContent
+
+Получение списка 20 самых больших почтовых ящиков:
+
+Get-MailboxStatistics -Server "ИМЯ_ПОЧТОВОГО_СЕРВЕРА" | sort TotalItemSize -desc | ft "displayname", "ItemCount", "TotalItemSize" | select -First 20
+
+!!!!!УДАЛИТЬ ВСЕ ПИСЬМА ИЗ ПАПКИ С ДАТЫ ПО ДАТУ!!!!
+Get-Mailbox -identity archive |Export-Mailbox -IncludeFolders "\Входящие" -StartDate "12/07/2011" -EndDate "01/12/2012" -DeleteContent
+
+Get-Mailbox -identity spam |Export-Mailbox -IncludeFolders "\Inbox" -StartDate "12/07/2011" -EndDate "01/01/2016" -DeleteContent
+
+
+!!!!!!!!Как удалить «плохое» сообщение из всех почтовых ящиков сразу?!!!!!!!
+
+
+Когда-то в своей практике я столкнулся с интересным (и крайне срочным!) запросом пользователя, который требовал удалить из почтовых ящиков всех сотрудников организации (более 200) одно письмо с крайне чувствительной для компании информацией, которое послал на общий список рассылки уволенный ранее сотрудник.
+Приведенный ниже командлет позволяет реализовать поиск по ящикам требуемого аккаунта и убрать нежелательное сообщение. В сценарии ниже для примера задана тема письма, почтовый ящик куда мы складываем «плохое» сообщение и целевая папка.
+
+get-mailbox -OrganizationalUnit Needed_OU -ResultSize unlimited | Search-Mailbox -SearchQuery Subject:'Very bad message' -TargetMailbox mailbox@mailbox.com -TargetFolder Inbox –DeleteContent
+
+
+!!!Вес ящиков в МБ
+Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | ft DisplayName,@{label="TotalItemSize(MB)";expression={$_.TotalItemSize.Value.ToMB()}},ItemCount
+
+!!!Статистика 20 самых больших ящиков!!!
+Get-MailboxStatistics -Server "ALPHA" | sort TotalItemSize -desc | ft "displayname", "ItemCount", "TotalItemSize" | select -First 20
+
+
+Количество писем в папке(когда много писем в одной папке есть большие проблемы- IMAP4  начинает грузить проц)
+Get-Mailbox | Get-MailboxFolderStatistics | Where {$_.ItemsInFolder -gt 20000} | fl identity, itemsinfolder
+
+
+
+Использование редактора реестра для изменения ограничения на размер базы данных
+Запустите редактор реестра (regedit).
+Найдите следующий подраздел реестра:
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MSExchangeIS\<ИМЯ_СЕРВЕРА>\Private-<GUID_базы_данных>
+Примечание.
+Идентификатор GUID базы данных можно получить, выполнив в командной консоли Exchange следующую команду: Get-MailboxDatabase -Identity "<server name>\<storage group name>\<database name>" | Format-Table Name, GUID
+Если для подраздела реестра существует значение типа DWORD Database Size Limit in GB (Ограничение размера базы данных в ГБ), установите для него необходимый размер в гигабайтах.
+Если значение типа DWORD Database Size Limit in GB (Ограничение размера базы данных в ГБ) для подраздела не существует, создайте значение DWORD с таким именем и задайте для него необходимый размер в гигабайтах.
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Удаление почтовых ящиков!!!!!!!!!!!
+
+!!!Сервера Exchange 2007/2010
+
+Что касается этих серверов, то здесь ни чего сложного нет. Если вы хотите удалить все отключенные ящики на сервере, то необходимо взять стандартный командлет Remove-Mailbox, и применить его по отношению к набору почтовых ящиков. Массив из отключенных ящиков мы можем получить точно таким же способом, как и в статье описывающей восстановление, далее его нужно будет сохранить в переменную, DeletedMailbox, но не весь целиком, а только значения DisplayName, MailboxGuid, Database. В результате команда будет выглядеть примерно так:
+
+$DeletedMailbox = Get-MailboxStatistics –Database <Your_MailboxDB> | where {$_.DisconnectDate -ne $null} | Select DisplayName, MailboxGuid, Database
+
+Если нужно избавиться ещё и от архивных почтовых ящиков сервера Exchange 2010, то добавим условие:
+
+-and ($_.IsArchiveMailbox -eq $true)
+
+Далее применяем командлет Remove-Mailbox к элементам массива DeletedMailbox:
+
+$DeletedMailbox | ForEach { Remove-Mailbox -Database $_.Database -StoreMailboxIdentity $_.MailboxGuid -confirm:$false }
+
+
+!!!!!!!!!!!!!!!!!!!!!!Сервер Exchange 2010 SP1
+
+Теперь несколько слов о сервер Exchange 2010 SP1, собственно именно он является виновником написания этой статьи, т.к. я хотел показать новый командлет, который появился с выходом первого сервис пака. Командлет зовут Remove-StoreMailbox и подробнее узнать о нем можно как всегда на страницах TechNet`a. Командлет специально «заточен» под очистку базы данных от отключенных либо удаленных почтовых ящиков. Если вы попытаетесь применить его к действующему почтовому ящику, то получите ошибку.
+
+Как известно, ящик можно отключить (Disable-Mailbox) либо удалить (Remove-Mailbox). После чего, его состояние можно проверить командлетом Get-MailboxStatistics, у которого в свойстве DisconnectReason будет значиться Disabled либо SoftDeleted соответственно.
+
+Примечание: Свойство DisconnectReason появилось у почтового ящика только после установки Exchange 2010 SP1
+
+Командлет Remove-StoreMailbox может обрабатывать отдельно отключенные и отдельно удаленные ящики, такое поведение задается параметром MailboxState, который может принимать значения Disabled или SoftDeleted.
+
+Для обработки всех почтовых ящиков в базе данных можно воспользоваться той же командой, что и в первой части статьи, только необходимо изменить условие на следующее:
+
+{$_.DisconnectReason -eq "SoftDeleted"}
+
+либо соответственно
+
+{$_.DisconnectReason -eq "Disabled"}
+
+В результате команда будет иметь вид:
+
+$DeletedMailbox = Get-MailboxStatistics –Database <Your_MailboxDB> | where {$_.DisconnectReason -eq "Disabled"} | Select DisplayName, MailboxGuid, Database
+
+$DeletedMailbox | ForEach { Remove-StoreMailbox -Database $_.Database -Identity $_.MailboxGuid –MailboxState Disabled }

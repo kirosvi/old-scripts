@@ -1,0 +1,37 @@
+# /etc/bashrc: executed by ~/.bashrc for non-login shells.
+
+# Are we an interactive shell?
+if [ -z "${-##*i*}" ]; then
+        # Set PS1 if not yet.
+        if [ "$PS1" = '\s-\v\$ ' ]; then
+                PS1='[\u@\h \W]\$ '
+        fi
+
+        # Set funcy prompt_command if unset.
+        if [ "${PROMPT_COMMAND-PROMPT_COMMAND}" = PROMPT_COMMAND ]; then
+                case "$TERM" in
+                        *xterm*|*rxvt*|*Eterm*)
+                                PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD/#$HOME\//~/}\007"'
+                                ;;
+                esac
+        fi
+
+        # Source optional scripts.
+        for f in /etc/bashrc.d/*.sh; do
+                if [ -r "$f" ]; then
+                        . "$f"
+                fi
+        done
+        unset f
+
+        if [ -n "$BASH" -a -n "$BASH_VERSION" ]; then
+                # Notify of job termination immediately.
+                set -b
+        fi
+fi
+shopt -s histappend
+export HISTTIMEFORMAT="%h %d %H:%M:%S "
+PROMPT_COMMAND='history -a; history -n'
+export HISTSIZE=10000
+export HISTCONTROL=ignorespace:ignoredups
+export HISTFILE=/var/log/history/${USER}

@@ -1,0 +1,16 @@
+---
+
+- name: Install additional software (ALT)
+  apt_rpm:
+    name: '{{ item }}'
+    state: 'present'
+    update_cache: yes
+  with_items:
+    - telnet
+    - iotop
+    - bind-utils
+    - python-modules-json
+    - python-module-simplejson
+    - python-module-setuptools
+    - python-module-apt
+    - python-module-selinux

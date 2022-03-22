@@ -1,0 +1,44 @@
+---
+
+- name: Change oddjob option
+  lineinfile:
+    path: '/etc/pam.d/password-auth'
+    line: 'session     optional      pam_oddjob_mkhomedir.so umask=0022'
+    state: present
+    create: yes
+
+- name: Change oddjob option
+  lineinfile:
+    path: '/etc/pam.d/system-auth'
+    line: 'session     optional      pam_oddjob_mkhomedir.so umask=0022'
+    state: present
+    create: yes
+
+#- name: Insert krb auth
+#  lineinfile:
+#    path: /etc/ssh/sshd_config
+#    insertafter: '^# Kerberos options'
+#    line: 'KerberosAuthentication yes'
+#    state: present
+#    create: yes
+
+#- name: Change nsswitch
+#  copy:
+#    src: 'el{{ ansible_distribution_major_version }}_nss'
+#    dest: '/etc/nsswitch.conf'
+#    owner: 'root'
+#    group: 'root'
+#    mode: '0644'
+
+- name: Change SMB conf 
+  template:
+     src: '{{ item.src }}'
+     dest: '{{ item.dst }}'
+     owner: 'root'
+     group: 'root'
+     mode: '0644'
+  with_items:
+    - { src: 'smb.conf.j2', dst: '/etc/samba/smb.conf' }
+    - { src: 'krb5.conf.j2', dst: '/etc/krb5.conf' }
+  notify:
+    - Restarting ad services

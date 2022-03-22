@@ -1,0 +1,15 @@
+---
+
+- name: Enable httpd (RHEL/OEL)
+  service:
+    name: 'httpd'
+    enabled: 'yes'
+    state: 'started'
+
+- name: Create symlink
+  file:
+    src: '/mirror/'
+    dest: '/var/www/html/mirror'
+    owner: 'root'
+    group: 'root'
+    state: 'link'

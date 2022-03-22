@@ -1,0 +1,37 @@
+---
+
+- name: Serach Ext sudoers files
+  find:
+    paths: '/etc/sudoers.d/'
+    patterns: '*'
+  register: sudo_files
+
+- name: disable immutable (ALT)
+  file:
+    path: '/etc/sudoers'
+    attributes: 'e'
+
+- name: disable immutable (ALT)
+  file:
+    path: '{{ item.path }}'
+    attributes: 'e'
+  with_items: '{{ sudo_files.files }}'
+
+- name: set sudoers files (ALT)
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    attributes: 'ie'
+    owner: 'root'
+    group: 'root'
+    mode: '0400'
+  with_items:
+    - { src: 'alt.def', dest: '/etc/sudoers' }
+    - { src: 'alt.adm', dest: '/etc/sudoers.d/admins' }
+
+- name: remove ext files (ALT)
+  file:
+    path: '{{ item.path }}'
+    state: absent
+  with_items: '{{ sudo_files.files }}'
+  when: remove_old_sudo

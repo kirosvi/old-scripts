@@ -1,0 +1,37 @@
+---
+
+- hosts: all
+  vars_prompt:
+  - name: 'ad_user'
+    prompt: '[Domain User]?'
+    private: false
+  - name: "delete_old_repo"
+    prompt: "\nDelete all repo files?"
+    private: false
+    default: true
+#  - name: 'doamin_user'
+#    prompt: '[Domain User]?'
+#    private: false
+#  - name: 'domain_passwd'
+#    prompt: '[Domain Password]?'
+#    private: true
+  - name: 'reboot_yes'
+    promt: '[Do you want to reboot hosts]?'
+    private: false
+    default: true
+  vars:
+    remove_old_sudo: true
+  roles:
+    - default_disable_services
+    - resolv
+    - local_repo
+    - soft_install
+    - bash_history
+    - ssh
+    - ntp
+    - join2ad
+    - zabbix_agent	# Only after join2ad
+    - { role: sudoers_ldap, when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux' }
+    - { role: sudoers, when: ansible_distribution == 'ALT' }
+    - ch_passwd_adm	# Always run at the end
+    - reboot

@@ -1,0 +1,22 @@
+#%PAM-1.0
+auth            [success=2 default=ignore]      pam_tcb.so shadow fork prefix=$2y$ count=8 nullok
+auth            requisite       pam_succeed_if.so uid >= 500 quiet
+auth            required        pam_winbind.so use_first_pass krb5_auth krb5_ccache_type=FILE
+auth            required        pam_permit.so
+
+account         [success=2 default=ignore]      pam_tcb.so shadow fork
+account         requisite       pam_succeed_if.so uid >= 500 quiet
+account         required        pam_winbind.so
+account         required        pam_permit.so
+
+password        required        pam_passwdqc.so config=/etc/passwdqc.conf
+password        [success=2 default=ignore]      pam_tcb.so use_authtok shadow fork prefix=$2y$ count=8 nullok write_to=tcb
+password        requisite       pam_succeed_if.so uid >= 500 quiet
+password        required        pam_winbind.so use_authtok
+
+session         [success=2 default=ignore]      pam_tcb.so
+session         requisite       pam_succeed_if.so uid >= 500 quiet
+session         required        pam_winbind.so
+session         required        pam_mktemp.so
+session         required        pam_mkhomedir.so silent umask=022
+session         required        pam_limits.so

@@ -1,0 +1,19 @@
+---
+
+- name: Ensure group "zags" exists
+  group:
+    name: 'zags'
+    state: present
+    gid: 403
+
+- name: Create user
+  user:
+    name: 'zags'
+    comment: 'Service zags'
+    groups: 'zags'
+    shell: '/bin/bash'
+    system: yes
+    create_home: yes
+    state: present
+    password: ''
+    update_password: always

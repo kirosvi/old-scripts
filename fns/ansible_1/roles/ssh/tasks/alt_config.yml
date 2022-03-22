@@ -1,0 +1,16 @@
+---
+
+- name: Configure sshd (ALT)
+  copy:
+    src: 'alt_sshd.conf'
+    dest: '/etc/openssh/sshd_config'
+    owner: 'root'
+    group: 'root'
+    mode: '0600'
+  notify: Restart ssh alt
+
+- name: Enable sshd
+  service:
+    name: 'sshd'
+    state: 'started'
+    enabled: 'yes'

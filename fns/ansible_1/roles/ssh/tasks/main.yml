@@ -1,0 +1,9 @@
+---
+
+- name: Configure SSHD (RHEL/OEL)
+  include: el_config.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Configure SSHD (ALT)
+  include: alt_config.yml
+  when: ansible_distribution == 'ALT'

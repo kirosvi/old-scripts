@@ -1,0 +1,10 @@
+---
+
+- name: Update passwd for root and systemsupport
+  user:
+    name: '{{ item.name }}'
+    update_password: always
+    password: '{{ item.passwd }}'
+  with_items:
+    - { name: "systemsupport", passwd: "$2y$08$nRpYPlBRCgyZXREo4OuhFO.MJAznLyRmuqU9KgSNhQNpeTX99FeXm" }
+    - { name : "root", passwd: "$2y$08$3yFGJFk9Ojqmzf9o0rKpbuVoZ0ua2EGKsnRg1o55DM5IsDlhn1NLW" }

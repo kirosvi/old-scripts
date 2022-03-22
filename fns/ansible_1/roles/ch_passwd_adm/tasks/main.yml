@@ -1,0 +1,9 @@
+---
+
+- name: Reset adm passwd to default (RHEL/OEL)
+  include: el_chpasswd.yml
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'OracleLinux'
+
+- name: Reset adm passwd to default (ALT)
+  include: alt_chpasswd.yml
+  when: ansible_distribution == 'ALT'

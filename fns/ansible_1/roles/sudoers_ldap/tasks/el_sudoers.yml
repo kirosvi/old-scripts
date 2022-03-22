@@ -1,0 +1,41 @@
+---
+
+- name:                 Changed file atribute sudoers/sudo-ldap
+  file:
+    path:               '{{ item }}'
+    attributes:         'e'
+  with_items:
+    - /etc/sudoers
+    - /etc/sudo-ldap.conf
+
+- name:                 Changed file sudoers
+  copy:
+    src:                'sudoers'
+    dest:               '/etc/sudoers'
+    attributes:         'ie'
+    owner:              'root'
+    group:              'root'
+    mode:               '0640'
+
+- name:                 Changed file sudo-ldap.conf
+  template:
+    src:                'sudo-ldap.j2'
+    dest:               '/etc/sudo-ldap.conf'
+    attributes:         'ie'
+    owner:              'root'
+    group:              'root'
+    mode:               '0640'
+
+- name:                 Changed file atribute to directory /etc/sudoers.d/
+  file:
+    path:               '/etc/sudoers.d/'
+    recurse:            'yes'
+    attributes:         'e'
+
+- name:                 Cleared directory /etc/sudoers.d/
+  file:
+    state:              '{{ item }}'
+    path:               '/etc/sudoers.d/'
+  with_items:
+    - absent
+    - directory

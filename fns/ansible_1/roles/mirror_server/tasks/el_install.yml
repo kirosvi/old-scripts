@@ -1,0 +1,10 @@
+---
+
+- name: Install packages (RHEL/OEL)
+  yum:
+    name: '{{ item }}'
+    state: 'present'
+  with_items:
+    - yum-utils
+    - createrepo
+    - httpd

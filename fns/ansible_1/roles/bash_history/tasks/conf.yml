@@ -1,0 +1,30 @@
+---
+
+- name: Create history dir
+  file:
+    path: '/var/log/history'
+    state: 'directory'
+    mode: '777'
+
+#- name: Create history attribute
+#  file:
+#    path: '/var/log/history/'
+#    attributes: 'ae'
+
+- name: Configure bash history (RHEL/OEL)
+  copy:
+    src: 'el_bashrc'
+    dest: '/etc/bashrc'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  when: ansible_distribution == 'OracleLinux' or ansible_distribution == 'RedHat'
+
+- name: Configure bash history (ALT)
+  copy:
+    src: 'alt_bashrc'
+    dest: '/etc/bashrc'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  when: ansible_distribution == 'ALT'

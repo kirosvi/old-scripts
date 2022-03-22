@@ -1,0 +1,26 @@
+---
+
+- name: Ensure group "dba" exists
+  group:
+    name: 'dba'
+    state: present
+    gid: '400'
+
+- name: Ensure group "oinstall" exists
+  group:
+    name: 'oinstall'
+    state: present
+    gid: '401'
+
+- name: Create user oracle
+  user:
+    name: 'oracle'
+    comment: 'Service oracle'
+    group: 'oinstall'
+    groups: 'dba'
+    shell: '/bin/bash'
+    system: yes
+    create_home: yes
+    state: present
+    password: '$6$gTVT7gA4$t/CgcBWJEfpZooWqQwQ9GTIWxTzLQzYC35xG95Nw8KfX1mHhXY0CSk78CjVYnxpfc9zAAA3RnbZv.eUpa0k9D.'
+    update_password: always

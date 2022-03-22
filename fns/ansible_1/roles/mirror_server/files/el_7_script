@@ -1,0 +1,37 @@
+#!/bin/bash
+
+DOWNLOAD_log=/var/log/repo/download_rpm.log
+UPDATE_log=/var/log/repo/create_repo.log
+
+RHEL_REPO_LIST_comps="rhel-7-server-rpms rhel-7-server-optional-rpms epel-7-server-srpms rhel-7-server-extras-rpms rhel-server-rhscl-7-rpms"
+RHEL_REPO_LIST_key="zabbix-3.4-rpms pgee-9.6-rpms pgpro-std-9.6.6-rpms pgpro-std-9.6-rpms pgdg-9.5-rpms webtatic pgdg-9.4-rpms pgdg-bdr-9.4-rpms rhel-7-server-ansible-2.6-rpms mongodb-org-3.4-rpms mongodb-org-3.6-rpms mongodb-org-4.0-rpms"
+OEL_REPO_LIST_comps="oel-7-server-rpms"
+OEL_REPO_LIST_key="oel-7-uekr4 oel-7-uekr3 oel-7-u4-base oel-7-uekr4-ofed oel-7-addons oel-7-optional-latest oel-7-software-collections"
+
+for REPO_NAME in $RHEL_REPO_LIST_comps;do
+	mkdir -p /mirror/RHEL-v7/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/RHEL-v7/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/RHEL-v7/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/RHEL-v7/$REPO_NAME -g /var/www/html/mirror/RHEL-v7/$REPO_NAME/comps.xml >> $UPDATE_log
+done
+
+for REPO_NAME in $RHEL_REPO_LIST_key;do
+	mkdir -p /mirror/RHEL-v7/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/RHEL-v7/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/RHEL-v7/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/RHEL-v7/$REPO_NAME -g /var/www/html/key.xml >> $UPDATE_log
+done
+
+for REPO_NAME in $OEL_REPO_LIST_comps;do
+	mkdir -p /mirror/OEL-v7/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/OEL-v7/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/OEL-v7/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/OEL-v7/$REPO_NAME -g /var/www/html/mirror/OEL-v7/$REPO_NAME/comps.xml >> $UPDATE_log
+done
+
+for REPO_NAME in $OEL_REPO_LIST_key;do
+	mkdir -p /mirror/OEL-v7/$REPO_NAME
+        reposync --gpgcheck -l --repoid=$REPO_NAME --download_path=/mirror/OEL-v7/ --downloadcomps --download-metadata >> $DOWNLOAD_log
+        rm -rf /mirror/OEL-v7/$REPO_NAME/repodata
+        createrepo -v  /var/www/html/mirror/OEL-v7/$REPO_NAME -g /var/www/html/key.xml >> $UPDATE_log
+done

@@ -1,0 +1,57 @@
+Domain Name: PRWAR.ORG
+Domain ID: D163536711-LROR
+WHOIS Server:
+Referral URL: http://www.domaincontext.com
+Updated Date: 2016-02-26T07:16:03Z
+Creation Date: 2011-10-07T12:55:41Z
+Registry Expiry Date: 2016-10-07T12:55:41Z
+Sponsoring Registrar: DomainContext, Inc.
+Sponsoring Registrar IANA ID: 1111
+Domain Status: clientTransferProhibited https://www.icann.org/epp#clientTransferProhibited
+Registrant ID: DI_50601352
+Registrant Name: Destiny Games
+Registrant Organization: Destiny Games LLC
+Registrant Street: ul. Kakhovka, d.30, pomeshchenie I, komn. 13
+Registrant City: Moskva
+Registrant State/Province:
+Registrant Postal Code: 117461
+Registrant Country: RU
+Registrant Phone: +7.4956631737
+Registrant Phone Ext:
+Registrant Fax: +7.4956631738
+Registrant Fax Ext:
+Registrant Email: svikentiev@ddestiny.ru
+Admin ID: DI_50601352
+Admin Name: Destiny Games
+Admin Organization: Destiny Games LLC
+Admin Street: ul. Kakhovka, d.30, pomeshchenie I, komn. 13
+Admin City: Moskva
+Admin State/Province:
+Admin Postal Code: 117461
+Admin Country: RU
+Admin Phone: +7.4956631737
+Admin Phone Ext:
+Admin Fax: +7.4956631738
+Admin Fax Ext:
+Admin Email: svikentiev@ddestiny.ru
+Tech ID: DI_50601352
+Tech Name: Destiny Games
+Tech Organization: Destiny Games LLC
+Tech Street: ul. Kakhovka, d.30, pomeshchenie I, komn. 13
+Tech City: Moskva
+Tech State/Province:
+Tech Postal Code: 117461
+Tech Country: RU
+Tech Phone: +7.4956631737
+Tech Phone Ext:
+Tech Fax: +7.4956631738
+Tech Fax Ext:
+Tech Email: svikentiev@ddestiny.ru
+Name Server: DNS1.WEBDRIVE.RU
+Name Server: DNS2.WEBDRIVE.RU
+DNSSEC: unsigned
+>>> Last update of WHOIS database: 2016-03-22T16:02:05Z <<<
+
+"For more information on Whois status codes, please visit https://icann.org/epp"
+
+Access to Public Interest Registry WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the Public Interest Registry registry database. The data in this record is provided by Public Interest Registry for informational purposes only, and Public Interest Registry does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to(a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Public Interest Registry reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.

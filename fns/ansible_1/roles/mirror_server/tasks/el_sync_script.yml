@@ -1,0 +1,37 @@
+---
+
+- name: Copy sync script (RHEL/OEL)
+  copy:
+    src: 'el_{{ ansible_distribution_major_version }}_script'
+    dest: '/usr/local/bin/update_mirror.sh'
+    owner: 'root'
+    group: 'root'
+    mode: '755'
+
+- name: Create log dir (RHEL/OEL)
+  file:
+    path: '/var/log/repo/'
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: '755'
+
+- name: Copy key.xml
+  copy:
+    src: 'key.xml'
+    dest: '/var/www/html/key.xml'
+    owner: 'root'
+    group: 'root'
+    mode: '644'
+
+#- name: Create log files (RHEL/OEL)
+#  file:
+#    path: '/var/log/repo/{{ item }}'
+#    state: 'touch'
+#    owner: 'root'
+#    group: 'root'
+#    mode: '755'
+#  with_items:
+#    - download_rpm.log
+#    - create_repo.log
+#  when: not st.stat.exists

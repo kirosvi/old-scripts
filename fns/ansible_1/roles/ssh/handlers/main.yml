@@ -1,0 +1,11 @@
+---
+
+- name: Restart ssh
+  service: 
+    name: sshd
+    state: restarted
+
+- name: Restart ssh alt
+  service: 
+    name: sshd
+    state: restarted
